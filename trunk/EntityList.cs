@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.IO;
 
 namespace WordCloud
 {
@@ -83,6 +84,25 @@ namespace WordCloud
         public void parseFile(string fileName)
         {
 
+			StreamReader In = new StreamReader(fileName);
+
+			string curFile = ""; //Current file data is being read for
+			string curLine = ""; //Current line in the XML file
+
+			while (In.EndOfStream == false)
+			{
+				//Go until you find out the filename
+				while (curFile == "")
+				{
+					curLine = In.ReadLine();
+
+					
+				}
+
+
+				//Now keep going to the end
+
+			}
         }
 
         /// <summary>
@@ -99,6 +119,29 @@ namespace WordCloud
         #endregion
 
         #region OtherFunctions
+
+		/// <summary>
+		/// Returns a string with the contents of the list.
+		/// </summary>
+		public string printList()
+		{
+			string Out = "";
+
+			foreach (Entity cur in entities)
+			{
+				//Print the name of the entity
+				Out += cur.Name + "\r\n";
+
+				foreach(string fN in cur.FileNames)
+				{
+					Out += "\t";
+					Out += fN;
+					Out += "\r\n";
+				}
+			}
+
+			return Out;
+		}
 
         #endregion
     }
