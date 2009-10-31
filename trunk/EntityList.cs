@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.IO;
+using System.Xml;
+
 
 namespace WordCloud
 {
@@ -83,26 +85,71 @@ namespace WordCloud
         /// <param name="fileName">Filename of the file.</param>
         public void parseFile(string fileName)
         {
+            XmlTextReader reader = new XmlTextReader("C:\\dataset\\" + fileName);
+            while (reader.Read()) 
+            {
+                if (reader.NodeType.Equals(XmlNodeType.Element))
+                {
+                    //The Element tag was just read, we need to
+                    // read once more to get the information.
+                    switch (reader.Name)
+                    {
+                        case "reportId":
+                            Console.Write("Report ID: ");
+                            // Text inside the tags will be read now.
+                            reader.Read();
+                            Console.WriteLine(reader.Value);
+                            break;
 
-			StreamReader In = new StreamReader(fileName);
+                        case "Person":
+                            Console.Write("Person: ");
+                            reader.Read();
+                            Console.WriteLine(reader.Value);
+                            break;
 
-			string curFile = ""; //Current file data is being read for
-			string curLine = ""; //Current line in the XML file
+                        case "Location":
+                            Console.Write("Location: ");
+                            reader.Read();
+                            Console.WriteLine(reader.Value);
+                            break;
 
-			while (In.EndOfStream == false)
-			{
-				//Go until you find out the filename
-				while (curFile == "")
-				{
-					curLine = In.ReadLine();
+                        case "Organization":
+                            Console.Write("Organization: ");
+                            reader.Read();
+                            Console.WriteLine(reader.Value);
+                            break;
 
-					
-				}
+                        case "Date":
+                            Console.Write("Date: ");
+                            reader.Read();
+                            Console.WriteLine(reader.Value);
+                            break;
 
-
-				//Now keep going to the end
-
-			}
+                        case "Money":
+                            Console.Write("Money: ");
+                            reader.Read();
+                            Console.WriteLine(reader.Value);
+                            break;
+                    }
+                }
+                /*switch (reader.NodeType) 
+                {
+                    case XmlNodeType.Element: // The node is an element.
+                        Console.Write("<" + reader.Name);
+                        while (reader.MoveToNextAttribute()) // Read the attributes.
+                        Console.Write(" " + reader.Name + "='" + reader.Value + "'");
+                        Console.WriteLine(">");
+                        break;
+                    case XmlNodeType.Text: //Display the text in each element.
+                        Console.WriteLine (reader.Value);
+                        break;
+                    case XmlNodeType. EndElement: //Display the end of the element.
+                        Console.Write("</" + reader.Name);
+                        Console.WriteLine(">");
+                        break;
+                }*/
+                 
+            }
         }
 
         /// <summary>
