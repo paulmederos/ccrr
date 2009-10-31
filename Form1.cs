@@ -20,7 +20,8 @@ namespace WordCloud
 			eList = new EntityList();
 
 			string winDir = System.Environment.GetEnvironmentVariable("windir");
-			eList.parseFile(winDir + "\\Stegosaurus-entity-extraction.xml");
+			//eList.parseFile(winDir + "\\Stegosaurus-entity-extraction.xml");
+            eList.parseFile("Stegosaurus-entity-extraction.xml");
 		}
 
 		private void testBtn_Click(object sender, EventArgs e)
