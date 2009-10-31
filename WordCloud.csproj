@@ -5,7 +5,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{EB5B74CD-B5F8-46EE-8A1F-5D393080B6A6}</ProjectGuid>
+    <ProjectGuid>{2845138C-BF07-4D49-A4B3-A57159B9F29F}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>WordCloud</RootNamespace>
