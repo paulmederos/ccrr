@@ -86,49 +86,57 @@ namespace WordCloud
         public void parseFile(string fileName)
         {
             XmlTextReader reader = new XmlTextReader("C:\\dataset\\" + fileName);
+            string reportId = "";
             while (reader.Read()) 
             {
                 if (reader.NodeType.Equals(XmlNodeType.Element))
                 {
-                    //The Element tag was just read, we need to
-                    // read once more to get the information.
+                    
+                    if (reader.Name.Equals("report"))
+                    {
+                        Console.WriteLine("Starting new report...");
+                        reader.Read(); // starts reading the report.
+                        reader.Read(); // readers the reportID tag.
+                        reader.Read(); // reads the reportID text.
+                        reportId = reader.Value;
+                        Console.WriteLine("Report ID: " + reportId);
+                        
+                    }
+
                     switch (reader.Name)
                     {
-                        case "reportId":
-                            Console.Write("Report ID: ");
-                            // Text inside the tags will be read now.
-                            reader.Read();
-                            Console.WriteLine(reader.Value);
-                            break;
-
                         case "Person":
                             Console.Write("Person: ");
                             reader.Read();
-                            Console.WriteLine(reader.Value);
+                            Console.WriteLine(reader.Value + ", ID=" + reportId);
                             break;
 
                         case "Location":
                             Console.Write("Location: ");
                             reader.Read();
                             Console.WriteLine(reader.Value);
+                            Console.WriteLine(reader.Value + ", ID=" + reportId);
                             break;
 
                         case "Organization":
                             Console.Write("Organization: ");
                             reader.Read();
                             Console.WriteLine(reader.Value);
+                            Console.WriteLine(reader.Value + ", ID=" + reportId);
                             break;
 
                         case "Date":
                             Console.Write("Date: ");
                             reader.Read();
                             Console.WriteLine(reader.Value);
+                            Console.WriteLine(reader.Value + ", ID=" + reportId);
                             break;
 
                         case "Money":
                             Console.Write("Money: ");
                             reader.Read();
                             Console.WriteLine(reader.Value);
+                            Console.WriteLine(reader.Value + ", ID=" + reportId);
                             break;
                     }
                 }
