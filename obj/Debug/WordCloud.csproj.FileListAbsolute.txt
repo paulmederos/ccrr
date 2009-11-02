@@ -1,8 +1,8 @@
-C:\ccrr\bin\Debug\WordCloud.exe
-C:\ccrr\bin\Debug\WordCloud.pdb
-C:\ccrr\obj\Debug\ResolveAssemblyReference.cache
-C:\ccrr\obj\Debug\WordCloud.Form1.resources
-C:\ccrr\obj\Debug\WordCloud.Properties.Resources.resources
-C:\ccrr\obj\Debug\WordCloud.csproj.GenerateResource.Cache
-C:\ccrr\obj\Debug\WordCloud.exe
-C:\ccrr\obj\Debug\WordCloud.pdb
+C:\Documents and Settings\Sarah\Desktop\csproject\bin\Debug\WordCloud.exe
+C:\Documents and Settings\Sarah\Desktop\csproject\bin\Debug\WordCloud.pdb
+C:\Documents and Settings\Sarah\Desktop\csproject\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Sarah\Desktop\csproject\obj\Debug\WordCloud.Form1.resources
+C:\Documents and Settings\Sarah\Desktop\csproject\obj\Debug\WordCloud.Properties.Resources.resources
+C:\Documents and Settings\Sarah\Desktop\csproject\obj\Debug\WordCloud.csproj.GenerateResource.Cache
+C:\Documents and Settings\Sarah\Desktop\csproject\obj\Debug\WordCloud.exe
+C:\Documents and Settings\Sarah\Desktop\csproject\obj\Debug\WordCloud.pdb
