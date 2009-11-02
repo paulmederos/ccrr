@@ -19,6 +19,7 @@ namespace WordCloud
         /// List of entities, of course.
         /// </summary>
         LinkedList<Entity> entities;
+        public enum EntityType { Person, Location, Organization, Date, Money }
 
         #endregion
 
@@ -85,7 +86,7 @@ namespace WordCloud
         /// <param name="fileName">Filename of the file.</param>
         public void parseFile(string fileName)
         {
-            XmlTextReader reader = new XmlTextReader("C:\\dataset\\" + fileName);
+            XmlTextReader reader = new XmlTextReader(fileName);
             string reportId = "";
             while (reader.Read()) 
             {
@@ -103,60 +104,57 @@ namespace WordCloud
                         
                     }
 
+                    // These cases are for when it's IN the <report> tag
+                    // reading the actual elements.
                     switch (reader.Name)
                     {
                         case "Person":
-                            Console.Write("Person: ");
+                            // Read the element's value
                             reader.Read();
-                            Console.WriteLine(reader.Value + ", ID=" + reportId);
+                            // Create entity with Person enum (0) and parsed name (reader.Value)
+                            Entity newPerson = new Entity(reader.Value, (Entity.EntityType)0);
+                            // Add the report ID to the entity
+                            newPerson.FileNames.Add(reportId);
+
+                            // Add entity to the main entity list if not found already
+                            LinkedListNode<Entity> found = entities.Find(newPerson);
+                            if (found != null){
+                                Console.WriteLine(newPerson.Name + " was found! Add document to list.");
+                                found.Value.addFilename("reportId.txt");
+                            } else {
+                                entities.AddLast(newPerson);
+                            }                       
                             break;
 
                         case "Location":
-                            Console.Write("Location: ");
                             reader.Read();
-                            Console.WriteLine(reader.Value);
-                            Console.WriteLine(reader.Value + ", ID=" + reportId);
+                            Entity newLocation = new Entity(reader.Value, (Entity.EntityType)1);
+                            newLocation.FileNames.Add(reportId);
+                            entities.AddLast(newLocation);
                             break;
 
                         case "Organization":
-                            Console.Write("Organization: ");
                             reader.Read();
-                            Console.WriteLine(reader.Value);
-                            Console.WriteLine(reader.Value + ", ID=" + reportId);
+                            Entity newOrg = new Entity(reader.Value, (Entity.EntityType)2);
+                            newOrg.FileNames.Add(reportId);
+                            entities.AddLast(newOrg);
                             break;
 
                         case "Date":
-                            Console.Write("Date: ");
                             reader.Read();
-                            Console.WriteLine(reader.Value);
-                            Console.WriteLine(reader.Value + ", ID=" + reportId);
+                            Entity newDate = new Entity(reader.Value, (Entity.EntityType)3);
+                            newDate.FileNames.Add(reportId);
+                            entities.AddLast(newDate);
                             break;
 
                         case "Money":
-                            Console.Write("Money: ");
                             reader.Read();
-                            Console.WriteLine(reader.Value);
-                            Console.WriteLine(reader.Value + ", ID=" + reportId);
+                            Entity newMoney = new Entity(reader.Value, (Entity.EntityType)4);
+                            newMoney.FileNames.Add(reportId);
+                            entities.AddLast(newMoney);
                             break;
                     }
-                }
-                /*switch (reader.NodeType) 
-                {
-                    case XmlNodeType.Element: // The node is an element.
-                        Console.Write("<" + reader.Name);
-                        while (reader.MoveToNextAttribute()) // Read the attributes.
-                        Console.Write(" " + reader.Name + "='" + reader.Value + "'");
-                        Console.WriteLine(">");
-                        break;
-                    case XmlNodeType.Text: //Display the text in each element.
-                        Console.WriteLine (reader.Value);
-                        break;
-                    case XmlNodeType. EndElement: //Display the end of the element.
-                        Console.Write("</" + reader.Name);
-                        Console.WriteLine(">");
-                        break;
-                }*/
-                 
+                }                 
             }
         }
 

@@ -19,9 +19,9 @@ namespace WordCloud
 			InitializeComponent();
 			eList = new EntityList();
 
-			string winDir = System.Environment.GetEnvironmentVariable("windir");
+			string curDir = System.Environment.CurrentDirectory;
 			//eList.parseFile(winDir + "\\Stegosaurus-entity-extraction.xml");
-            eList.parseFile("test.xml");
+            eList.parseFile("C:\\ccrr\\dataset\\test.xml");
 		}
 
 		private void testBtn_Click(object sender, EventArgs e)
