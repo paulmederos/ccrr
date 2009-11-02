@@ -120,7 +120,7 @@ namespace WordCloud
                             LinkedListNode<Entity> found = entities.Find(newPerson);
                             if (found != null){
                                 Console.WriteLine(newPerson.Name + " was found! Add document to list.");
-                                found.Value.addFilename("reportId.txt");
+                                found.Value.addFilename(reportId);
                             } else {
                                 entities.AddLast(newPerson);
                             }                       
