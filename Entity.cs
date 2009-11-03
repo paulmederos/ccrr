@@ -30,7 +30,7 @@ namespace WordCloud
         /// <summary>
         /// List of files containing the entity.
         /// </summary>
-        LinkedList<string> fileNames;
+        LinkedList<Document> fileNames;
 
 
         #endregion
@@ -46,7 +46,7 @@ namespace WordCloud
         {
             name = eName;
             type = eType;
-            fileNames = new LinkedList<string>();
+            fileNames = new LinkedList<Document>();
         }
 
         /// <summary>
@@ -138,11 +138,11 @@ namespace WordCloud
         /// <summary>
         /// Filenames of files containing this entity.
         /// </summary>
-        public List<string> FileNames
+        public List<Document> FileNames
         {
             get
             {
-                return new List<string>(fileNames);
+                return new List<Document>(fileNames);
             }
         }
 
