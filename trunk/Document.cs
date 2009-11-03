@@ -23,7 +23,9 @@ namespace WordCloud
         string text;
 
         /// <summary>
-        /// List of entities in the document.
+        /// List of entities in the document.  This will be useful if 
+        /// syntax highlighting is added, otherwise not really useful
+        /// at all.
         /// </summary>
         LinkedList<Entity> entityList;
         #endregion 
