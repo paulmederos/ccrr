@@ -58,14 +58,14 @@ namespace WordCloud
         }
 
         /// <summary>
-        /// Adds a filename to the entity's list of files.
+        /// Adds a document to the entity's list of files.
         /// </summary>
         /// <param name="fileName">Name of file to add.</param>
-        public bool addFilename(string fileName)
+        public bool addFilename(Document file)
         {
-            if (fileNames.Find(fileName) == null)
+            if (fileNames.Find(file) == null)
             {
-                fileNames.AddLast(fileName);
+                fileNames.AddLast(file);
                 return true;
             }
             else
