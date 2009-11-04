@@ -45,17 +45,27 @@ namespace WordCloud
         /// <summary>
         /// Gets text of document.
         /// </summary>
-        public string gettext(Document doc)
+        public string getText(Document doc)
         {
             return doc.text;
+        }
+
+        public string getText()
+        {
+            return text;
         }
 
         /// <summary>
         /// Gets name of document.
         /// </summary>
-        public string getname(Document doc)
+        public string getName(Document doc)
         {
             return doc.name;
+        }
+
+        public string getName()
+        {
+            return name;
         }
 
         /// <summary>
