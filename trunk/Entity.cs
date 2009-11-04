@@ -8,7 +8,7 @@ namespace WordCloud
     /// <summary>
     /// Entity that goes in the entity list.
     /// </summary>
-    class Entity
+    public class Entity
     {
         #region Variables
 

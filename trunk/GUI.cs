@@ -16,7 +16,7 @@ namespace WordCloud
 		bool dataLoaded;
 		LinkedList<Entity> burstList;
 		int listTrim;
-		string curSearchTerm;
+		public Entity curSearchTerm;
 
         public GUI()
         {
@@ -80,10 +80,10 @@ namespace WordCloud
 
 				eList.parseFile(fileName);
 
-				curSearchTerm = "";
+				curSearchTerm = new Entity("",Entity.EntityType.Date);
 				burstList = eList.getList();
-				LinkedList<Entity> trimmedList = trimEntityList(burstList, listTrim);
-				d.Populate(trimmedList, curSearchTerm);
+				
+				refreshList();
 				
 				dataLoaded = true;
 			}
@@ -91,37 +91,27 @@ namespace WordCloud
 
 		private void showPerson_CheckedChanged(object sender, EventArgs e)
 		{
-			LinkedList<Entity> trimmedList = trimEntityList(burstList, listTrim);
-			d.Populate(trimmedList, curSearchTerm);
-			Refresh();
+			refreshList();
 		}
 
 		private void showLocation_CheckedChanged(object sender, EventArgs e)
 		{
-			LinkedList<Entity> trimmedList = trimEntityList(burstList, listTrim);
-			d.Populate(trimmedList, curSearchTerm);
-			Refresh();
+			refreshList();
 		}
 
 		private void showOrganization_CheckedChanged(object sender, EventArgs e)
 		{
-			LinkedList<Entity> trimmedList = trimEntityList(burstList, listTrim);
-			d.Populate(trimmedList, curSearchTerm);
-			Refresh();
+			refreshList();
 		}
 
 		private void showMoney_CheckedChanged(object sender, EventArgs e)
 		{
-			LinkedList<Entity> trimmedList = trimEntityList(burstList, listTrim);
-			d.Populate(trimmedList, curSearchTerm);
-			Refresh();
+			refreshList();
 		}
 
 		private void showDate_CheckedChanged(object sender, EventArgs e)
 		{
-			LinkedList<Entity> trimmedList = trimEntityList(burstList, listTrim);
-			d.Populate(trimmedList, curSearchTerm);
-			Refresh();
+			refreshList();
 		}
 
 
@@ -156,19 +146,26 @@ namespace WordCloud
 							curNode = curNode.Next;
 
 
-							if (curNode == newList.Last)
+							if (curNode == null || curNode == newList.Last)
 							{
 								break;
 							}
 						}
 
-						if (cur.hitCount() < curNode.Value.hitCount())
+						if (curNode != null)
 						{
-							newList.AddBefore(curNode, cur);
+							if (cur.hitCount() < curNode.Value.hitCount())
+							{
+								newList.AddBefore(curNode, cur);
+							}
+							else
+							{
+								newList.AddAfter(curNode, cur);
+							}
 						}
 						else
 						{
-							newList.AddAfter(curNode, cur);
+							newList.AddLast(cur);
 						}
 
 						if (newList.Count >= maxWedges)
@@ -198,6 +195,25 @@ namespace WordCloud
 					return showDate.Checked;
 			}
 			return true;
+		}
+
+		private void wedgesSlider_Scroll(object sender, EventArgs e)
+		{
+			listTrim = wedgesSlider.Value;
+			refreshList();
+		}
+
+		private void refreshList()
+		{
+			LinkedList<Entity> trimmedList = trimEntityList(burstList, listTrim);
+
+			d.Populate(trimmedList, curSearchTerm.Name);
+
+			string labelText = "Entities shown:" + trimmedList.Count.ToString() + " of "
+				+ burstList.Count.ToString();
+			NumEntitiesLabel.Text = labelText;
+
+			Refresh();
 		}
 
     }

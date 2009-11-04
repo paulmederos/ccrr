@@ -8,7 +8,7 @@ namespace WordCloud
     /// <summary>
     /// Document object; holds document name and text
     /// </summary>
-    class Document
+    public class Document
     {
         #region Variables
 
