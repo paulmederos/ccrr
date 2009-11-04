@@ -19,6 +19,7 @@ namespace WordCloud
         /// List of entities, of course.
         /// </summary>
         LinkedList<Entity> entities;
+        int numEntities;
         public enum EntityType { Person, Location, Organization, Date, Money }
 
         #endregion
@@ -31,6 +32,7 @@ namespace WordCloud
         public EntityList()
         {
             entities = new LinkedList<Entity>();
+            numEntities = 0;
         }
 
         #endregion
@@ -131,6 +133,7 @@ namespace WordCloud
                                 newPerson.addFilename(toAdd);
                                 entities.AddLast(newPerson);
                             }
+                            numEntities++;
                             break;
 
                         case "Location":
@@ -143,7 +146,8 @@ namespace WordCloud
                             
                                 newLocation.addFilename(toAdd);
                                 entities.AddLast(newLocation);
-                            }                       
+                            }
+                            numEntities++;
                             break;
 
                         case "Organization":
@@ -155,10 +159,10 @@ namespace WordCloud
                             }
                             else
                             {
-
                                 newOrg.addFilename(toAdd);
                                 entities.AddLast(newOrg);
-                            }   
+                            }
+                            numEntities++;
                             break;
 
                         case "Date":
@@ -170,10 +174,10 @@ namespace WordCloud
                             }
                             else
                             {
-
                                 newDate.addFilename(toAdd);
                                 entities.AddLast(newDate);
-                            }   
+                            }
+                            numEntities++;
                             break;
 
                         case "Money":
@@ -185,10 +189,10 @@ namespace WordCloud
                             }
                             else
                             {
-
                                 newMoney.addFilename(toAdd);
                                 entities.AddLast(newMoney);
-                            }   
+                            }
+                            numEntities++;
                             break;
                     }
                 }                 
@@ -230,6 +234,11 @@ namespace WordCloud
         public LinkedList<Entity> getList()
         {
             return entities;
+        }
+
+        public int numOfEntities()
+        {
+            return numEntities;
         }
 
         #endregion
