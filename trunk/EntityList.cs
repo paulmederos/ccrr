@@ -221,6 +221,7 @@ namespace WordCloud
                             if (doc.getName() == reportId)
                             {
                                 shouldScan = true;
+								break;
                             }
                             else
                             {
