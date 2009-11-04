@@ -57,27 +57,10 @@ namespace WordCloud
             }
         }
 
-        /// <summary>
-        /// Adds the filename to the entity. The entity has to already be in the list.
-        /// </summary>
-        /// <param name="Entity">Name of the entity</param>
-        /// <param name="fileName">Filename to add.</param>
-        /// <returns>True if the entity was in the list, and the file name was not in the list.</returns>
-        /*public bool addFilename(string entity, string fileName)
+        public Entity getEntity(string toFind)
         {
-            //I have a feeling this isn't going to work.
-            Entity foundEn = entities.Find(new Entity(entity, Entity.EntityType.Person)).Value;
-
-            if ( foundEn == null)
-            {
-                return false;
-            }
-            else
-            {
-                return foundEn.addFilename(fileName);
-            }
+            return entities.Find(new Entity(toFind, (Entity.EntityType)0)).Value;
         }
-        */
 
         #endregion
 
@@ -209,7 +192,6 @@ namespace WordCloud
         {
             LinkedList<Entity> newList = new LinkedList<Entity>();
             
-            Console.WriteLine("About to search...");
             
             XmlTextReader reader = new XmlTextReader(fileName);
             string reportId = "";
@@ -226,8 +208,6 @@ namespace WordCloud
                     // If Element tag shows we're in a new report...
                     if (reader.Name.Equals("report"))
                     {
-                        Console.WriteLine();
-                        Console.WriteLine("Scanning new report...");
                         reader.Read(); // starts reading the report.
                         reader.Read(); // readers the reportID tag.
                         reader.Read(); // reads the reportID text.
@@ -238,15 +218,12 @@ namespace WordCloud
                         // current Entity we are searching for.
                         foreach (Document doc in entities.Find(toFind).Value.FileNames)
                         {
-                            Console.WriteLine("Comparing ["+reportId+"] with ["+doc.getName()+"]");
                             if (doc.getName() == reportId)
                             {
-                                Console.WriteLine("ReportIDs match, lets scan it!");
                                 shouldScan = true;
                             }
                             else
                             {
-                                Console.WriteLine("ReportIDs do NOT match...");
                                 shouldScan = false;
                             }
                         }
@@ -407,6 +384,12 @@ namespace WordCloud
         public int numOfEntities()
         {
             return numEntities;
+        }
+
+        public bool containsEntity(string word)
+        {
+            Entity find = new Entity(word, (Entity.EntityType)0);
+            return entities.Contains(find);
         }
 
         #endregion
