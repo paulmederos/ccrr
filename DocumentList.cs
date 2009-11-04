@@ -32,32 +32,15 @@ namespace WordCloud
         #region Functions
         
         /// <summary>
-        /// Adds a document to docs, returns true if successful, fails if there
-        /// is already a document by that name in the list.
-        /// <summary>
-        public bool addDocument(Document newDoc)
-        {
-            if (docs.Find(newDoc) = null)
-            {
-                docs.AddLast(newDoc);
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        /// <summary>
         /// Returns a string with all document names.
         /// </summary>
         public string printList()
         {
-            string list;
+            string list="";
 
             foreach (Document doc in docs)
             {
-                list += doc.Name + "\r\n";
+                list += doc.getName() + "\r\n";
             }
             return list;
         }

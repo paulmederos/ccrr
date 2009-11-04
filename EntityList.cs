@@ -61,7 +61,7 @@ namespace WordCloud
         /// <param name="Entity">Name of the entity</param>
         /// <param name="fileName">Filename to add.</param>
         /// <returns>True if the entity was in the list, and the file name was not in the list.</returns>
-        public bool addFilename(string entity, string fileName)
+        /*public bool addFilename(string entity, string fileName)
         {
             //I have a feeling this isn't going to work.
             Entity foundEn = entities.Find(new Entity(entity, Entity.EntityType.Person)).Value;
@@ -75,6 +75,7 @@ namespace WordCloud
                 return foundEn.addFilename(fileName);
             }
         }
+        */
 
         #endregion
 
@@ -100,7 +101,8 @@ namespace WordCloud
                         reader.Read(); // readers the reportID tag.
                         reader.Read(); // reads the reportID text.
                         reportId = reader.Value;
-                        Console.WriteLine("Report ID: " + reportId);
+                        reader.Read();
+                        Console.WriteLine(reader.Value);
                         
                     }
 
@@ -114,13 +116,13 @@ namespace WordCloud
                             // Create entity with Person enum (0) and parsed name (reader.Value)
                             Entity newPerson = new Entity(reader.Value, (Entity.EntityType)0);
                             // Add the report ID to the entity
-                            newPerson.FileNames.Add(reportId);
+                            //newPerson.FileNames.Add(reportId);
 
                             // Add entity to the main entity list if not found already
                             LinkedListNode<Entity> found = entities.Find(newPerson);
                             if (found != null){
                                 Console.WriteLine(newPerson.Name + " was found! Add document to list.");
-                                found.Value.addFilename(reportId);
+                                //found.Value.addFilename(reportId);
                             } else {
                                 entities.AddLast(newPerson);
                             }                       
@@ -129,28 +131,28 @@ namespace WordCloud
                         case "Location":
                             reader.Read();
                             Entity newLocation = new Entity(reader.Value, (Entity.EntityType)1);
-                            newLocation.FileNames.Add(reportId);
+                            //newLocation.FileNames.Add(reportId);
                             entities.AddLast(newLocation);
                             break;
 
                         case "Organization":
                             reader.Read();
                             Entity newOrg = new Entity(reader.Value, (Entity.EntityType)2);
-                            newOrg.FileNames.Add(reportId);
+                            //newOrg.FileNames.Add(reportId);
                             entities.AddLast(newOrg);
                             break;
 
                         case "Date":
                             reader.Read();
                             Entity newDate = new Entity(reader.Value, (Entity.EntityType)3);
-                            newDate.FileNames.Add(reportId);
+                            //newDate.FileNames.Add(reportId);
                             entities.AddLast(newDate);
                             break;
 
                         case "Money":
                             reader.Read();
                             Entity newMoney = new Entity(reader.Value, (Entity.EntityType)4);
-                            newMoney.FileNames.Add(reportId);
+                            //newMoney.FileNames.Add(reportId);
                             entities.AddLast(newMoney);
                             break;
                     }
@@ -185,10 +187,10 @@ namespace WordCloud
 				//Print the name of the entity
 				Out += cur.Name + "\r\n";
 
-				foreach(string fN in cur.FileNames)
+				foreach(Document fN in cur.FileNames)
 				{
 					Out += "\t";
-					Out += fN;
+					Out += fN.getName();
 					Out += "\r\n";
 				}
 			}
