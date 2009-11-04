@@ -17,7 +17,6 @@ namespace WordCloud
 		LinkedList<Entity> burstList;
 		int listTrim;
 		string curSearchTerm;
-        Document curr_doc;
 
         public GUI()
         {
