@@ -29,6 +29,7 @@ namespace WordCloud
 			burstList = new LinkedList<Entity>();
 			listTrim = 20;
 			dataLoaded = false;
+            this.Text = "Please Load File";
 
         }
 
@@ -70,7 +71,7 @@ namespace WordCloud
 				curSearchTerm = eList.getEntity(hit.Name);
 				burstList = eList.search(curSearchTerm, globalFileName);
 				refreshList();
-				previousSearchBox.Items.Insert(0, hit.Name);
+				previousSearchBox.Items.Insert(0, hit.Name);                
 
 				SoundPlayer s = new SoundPlayer();
 
@@ -106,8 +107,7 @@ namespace WordCloud
 				curSearchTerm = eList.getEntity(term);
 				burstList = eList.search(curSearchTerm, globalFileName);
 				refreshList();
-				//previousSearchBox.Items.Insert(0, searchBox.Text);
-				
+				//previousSearchBox.Items.Insert(0, searchBox.Text);				
 			}
 			else
 			{
@@ -132,9 +132,9 @@ namespace WordCloud
 
 				curSearchTerm = new Entity("",Entity.EntityType.Date);
 				burstList = eList.getList();
+
 				
 				refreshList();
-				
 				dataLoaded = true;
 			}
 		}
@@ -275,5 +275,22 @@ namespace WordCloud
 			refreshList();
 		}
 
+        private void wordCloudToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Sorry, Cloud is not implemented yet!", "Future Revisions",
+                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+        }
+
+        private void goodLuckToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Ask the experts.", "Dumb User Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+        }
+
+        private void documentsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DocumentViewUI docView = new DocumentViewUI();
+            docView.Show();
+        }
     }
 }
