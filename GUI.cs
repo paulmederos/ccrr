@@ -7,16 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
+
 namespace WordCloud
 {
     public partial class GUI : Form
     {
         Docuburst d;
-		EntityList eList;
+		EntityList eList;        
 		bool dataLoaded;
 		LinkedList<Entity> burstList;
 		int listTrim;
 		public Entity curSearchTerm;
+        string globalFileName; //Path for XML file.
 
         public GUI()
         {
@@ -26,11 +28,6 @@ namespace WordCloud
 			burstList = new LinkedList<Entity>();
 			listTrim = 20;
 			dataLoaded = false;
-        }
-
-        private void searchButton_MouseClick(object sender, MouseEventArgs e)
-        {
-            previousSearchBox.Items.Insert(0, searchBox.Text);
         }
 
 		/// <summary>
@@ -76,9 +73,9 @@ namespace WordCloud
 
 			if (res == DialogResult.OK)
 			{
-				string fileName = openFileDialog1.FileName;
+				globalFileName = openFileDialog1.FileName;
 
-				eList.parseFile(fileName);
+				eList.parseFile(globalFileName);
 
 				curSearchTerm = new Entity("",Entity.EntityType.Date);
 				burstList = eList.getList();
@@ -197,6 +194,7 @@ namespace WordCloud
 			return true;
 		}
 
+
 		private void wedgesSlider_Scroll(object sender, EventArgs e)
 		{
 			listTrim = wedgesSlider.Value;
@@ -216,5 +214,20 @@ namespace WordCloud
 			Refresh();
 		}
 
+        private void searchButton_Click(object sender, EventArgs e)
+        {
+            if (eList.containsEntity(searchBox.Text))
+            {
+                curSearchTerm = eList.getEntity(searchBox.Text);
+                burstList = eList.search(curSearchTerm, globalFileName);
+                refreshList();
+                previousSearchBox.Items.Insert(0, searchBox.Text);
+            }
+            else
+            {
+                MessageBox.Show("Damn, we don't have that entity in our list!", "Name Entry Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
     }
 }
