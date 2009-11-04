@@ -63,8 +63,30 @@ namespace WordCloud
 		private void BurstPanel_MouseDown(object sender, MouseEventArgs e)
 		{
 			Entity hit = d.mouseClick(e);
+			if (hit.Name != "NOTHING")
+			{
+				curSearchTerm = eList.getEntity(hit.Name);
+				burstList = eList.search(curSearchTerm, globalFileName);
+				refreshList();
+				previousSearchBox.Items.Insert(0, hit.Name);
+			}
+		}
 
 
+		private void searchButton_Click_1(object sender, EventArgs e)
+		{
+			if (eList.containsEntity(searchBox.Text))
+			{
+				curSearchTerm = eList.getEntity(searchBox.Text);
+				burstList = eList.search(curSearchTerm, globalFileName);
+				refreshList();
+				previousSearchBox.Items.Insert(0, searchBox.Text);
+			}
+			else
+			{
+				MessageBox.Show("Damn, we don't have that entity in our list!", "Name Entry Error",
+					MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+			}
 		}
 
 		private void openToolStripMenuItem_Click(object sender, EventArgs e)
@@ -73,6 +95,10 @@ namespace WordCloud
 
 			if (res == DialogResult.OK)
 			{
+
+				burstList = new LinkedList<Entity>();
+				eList = new EntityList();
+
 				globalFileName = openFileDialog1.FileName;
 
 				eList.parseFile(globalFileName);
@@ -128,7 +154,7 @@ namespace WordCloud
 			foreach (Entity cur in list)
 			{
 
-				if (isEntityShown(cur.Type))
+				if (isEntityShown(cur.Type) && cur.Name != curSearchTerm.Name)
 				{
 					LinkedListNode<Entity> curNode = newList.First;
 
@@ -214,20 +240,13 @@ namespace WordCloud
 			Refresh();
 		}
 
-        private void searchButton_Click(object sender, EventArgs e)
-        {
-            if (eList.containsEntity(searchBox.Text))
-            {
-                curSearchTerm = eList.getEntity(searchBox.Text);
-                burstList = eList.search(curSearchTerm, globalFileName);
-                refreshList();
-                previousSearchBox.Items.Insert(0, searchBox.Text);
-            }
-            else
-            {
-                MessageBox.Show("Damn, we don't have that entity in our list!", "Name Entry Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
-        }
+		private void homeButton_Click(object sender, EventArgs e)
+		{
+			curSearchTerm = new Entity("", Entity.EntityType.Date);
+			burstList = eList.getList();
+
+			refreshList();
+		}
+
     }
 }

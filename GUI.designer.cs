@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-			this.components = new System.ComponentModel.Container();
 			this.label4 = new System.Windows.Forms.Label();
 			this.searchPanel = new System.Windows.Forms.Panel();
 			this.previousSearchBox = new System.Windows.Forms.ListBox();
@@ -52,28 +51,31 @@
 			this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.goodLuckToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.BurstPanel = new WordCloud.GUI.MyPanel();
-			this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-			this.entityTypes = new System.Windows.Forms.GroupBox();
-			this.showPerson = new System.Windows.Forms.CheckBox();
-			this.showLocation = new System.Windows.Forms.CheckBox();
-			this.showOrganization = new System.Windows.Forms.CheckBox();
-			this.showMoney = new System.Windows.Forms.CheckBox();
-			this.showDate = new System.Windows.Forms.CheckBox();
-			this.wedgesSlider = new System.Windows.Forms.TrackBar();
-			this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
-			this.sliderLabel = new System.Windows.Forms.Label();
 			this.NumEntitiesLabel = new System.Windows.Forms.Label();
+			this.sliderLabel = new System.Windows.Forms.Label();
+			this.wedgesSlider = new System.Windows.Forms.TrackBar();
+			this.entityTypes = new System.Windows.Forms.GroupBox();
+			this.showDate = new System.Windows.Forms.CheckBox();
+			this.showMoney = new System.Windows.Forms.CheckBox();
+			this.showOrganization = new System.Windows.Forms.CheckBox();
+			this.showLocation = new System.Windows.Forms.CheckBox();
+			this.showPerson = new System.Windows.Forms.CheckBox();
+			this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+			this.homeButton = new System.Windows.Forms.Button();
 			this.searchPanel.SuspendLayout();
 			this.savedPanel.SuspendLayout();
 			this.sidePanel.SuspendLayout();
 			this.menuStrip1.SuspendLayout();
 			this.BurstPanel.SuspendLayout();
-			this.entityTypes.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.wedgesSlider)).BeginInit();
+			this.entityTypes.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// label4
 			// 
+			this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+						| System.Windows.Forms.AnchorStyles.Left)
+						| System.Windows.Forms.AnchorStyles.Right)));
 			this.label4.AutoSize = true;
 			this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label4.Location = new System.Drawing.Point(282, 0);
@@ -123,7 +125,7 @@
 			this.searchButton.TabIndex = 2;
 			this.searchButton.Text = "Go";
 			this.searchButton.UseVisualStyleBackColor = true;
-			this.searchButton.MouseClick += new System.Windows.Forms.MouseEventHandler(this.searchButton_MouseClick);
+			this.searchButton.Click += new System.EventHandler(this.searchButton_Click_1);
 			// 
 			// searchBox
 			// 
@@ -270,6 +272,7 @@
 			this.BurstPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
 						| System.Windows.Forms.AnchorStyles.Left)
 						| System.Windows.Forms.AnchorStyles.Right)));
+			this.BurstPanel.Controls.Add(this.homeButton);
 			this.BurstPanel.Controls.Add(this.NumEntitiesLabel);
 			this.BurstPanel.Controls.Add(this.sliderLabel);
 			this.BurstPanel.Controls.Add(this.wedgesSlider);
@@ -283,9 +286,38 @@
 			this.BurstPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.BurstPanel_MouseMove);
 			this.BurstPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BurstPanel_MouseDown);
 			// 
-			// openFileDialog1
+			// NumEntitiesLabel
 			// 
-			this.openFileDialog1.FileName = "openFileDialog1";
+			this.NumEntitiesLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.NumEntitiesLabel.AutoSize = true;
+			this.NumEntitiesLabel.Location = new System.Drawing.Point(12, 423);
+			this.NumEntitiesLabel.Name = "NumEntitiesLabel";
+			this.NumEntitiesLabel.Size = new System.Drawing.Size(108, 13);
+			this.NumEntitiesLabel.TabIndex = 4;
+			this.NumEntitiesLabel.Text = "Entities shown: 0 of 0";
+			this.NumEntitiesLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// sliderLabel
+			// 
+			this.sliderLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.sliderLabel.Location = new System.Drawing.Point(252, 412);
+			this.sliderLabel.Name = "sliderLabel";
+			this.sliderLabel.Size = new System.Drawing.Size(99, 34);
+			this.sliderLabel.TabIndex = 3;
+			this.sliderLabel.Text = "Number of wedges:";
+			this.sliderLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// wedgesSlider
+			// 
+			this.wedgesSlider.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.wedgesSlider.Location = new System.Drawing.Point(357, 418);
+			this.wedgesSlider.Maximum = 40;
+			this.wedgesSlider.Minimum = 11;
+			this.wedgesSlider.Name = "wedgesSlider";
+			this.wedgesSlider.Size = new System.Drawing.Size(197, 34);
+			this.wedgesSlider.TabIndex = 2;
+			this.wedgesSlider.Value = 20;
+			this.wedgesSlider.Scroll += new System.EventHandler(this.wedgesSlider_Scroll);
 			// 
 			// entityTypes
 			// 
@@ -302,47 +334,19 @@
 			this.entityTypes.TabStop = false;
 			this.entityTypes.Text = "Entity Types";
 			// 
-			// showPerson
+			// showDate
 			// 
-			this.showPerson.AutoSize = true;
-			this.showPerson.Checked = true;
-			this.showPerson.CheckState = System.Windows.Forms.CheckState.Checked;
-			this.showPerson.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-			this.showPerson.Location = new System.Drawing.Point(6, 21);
-			this.showPerson.Name = "showPerson";
-			this.showPerson.Size = new System.Drawing.Size(59, 17);
-			this.showPerson.TabIndex = 0;
-			this.showPerson.Text = "Person";
-			this.showPerson.UseVisualStyleBackColor = true;
-			this.showPerson.CheckedChanged += new System.EventHandler(this.showPerson_CheckedChanged);
-			// 
-			// showLocation
-			// 
-			this.showLocation.AutoSize = true;
-			this.showLocation.Checked = true;
-			this.showLocation.CheckState = System.Windows.Forms.CheckState.Checked;
-			this.showLocation.ForeColor = System.Drawing.Color.Olive;
-			this.showLocation.Location = new System.Drawing.Point(6, 44);
-			this.showLocation.Name = "showLocation";
-			this.showLocation.Size = new System.Drawing.Size(67, 17);
-			this.showLocation.TabIndex = 1;
-			this.showLocation.Text = "Location";
-			this.showLocation.UseVisualStyleBackColor = true;
-			this.showLocation.CheckedChanged += new System.EventHandler(this.showLocation_CheckedChanged);
-			// 
-			// showOrganization
-			// 
-			this.showOrganization.AutoSize = true;
-			this.showOrganization.Checked = true;
-			this.showOrganization.CheckState = System.Windows.Forms.CheckState.Checked;
-			this.showOrganization.ForeColor = System.Drawing.Color.Navy;
-			this.showOrganization.Location = new System.Drawing.Point(6, 68);
-			this.showOrganization.Name = "showOrganization";
-			this.showOrganization.Size = new System.Drawing.Size(85, 17);
-			this.showOrganization.TabIndex = 2;
-			this.showOrganization.Text = "Organization";
-			this.showOrganization.UseVisualStyleBackColor = true;
-			this.showOrganization.CheckedChanged += new System.EventHandler(this.showOrganization_CheckedChanged);
+			this.showDate.AutoSize = true;
+			this.showDate.Checked = true;
+			this.showDate.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.showDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+			this.showDate.Location = new System.Drawing.Point(6, 114);
+			this.showDate.Name = "showDate";
+			this.showDate.Size = new System.Drawing.Size(49, 17);
+			this.showDate.TabIndex = 4;
+			this.showDate.Text = "Date";
+			this.showDate.UseVisualStyleBackColor = true;
+			this.showDate.CheckedChanged += new System.EventHandler(this.showDate_CheckedChanged);
 			// 
 			// showMoney
 			// 
@@ -358,52 +362,63 @@
 			this.showMoney.UseVisualStyleBackColor = true;
 			this.showMoney.CheckedChanged += new System.EventHandler(this.showMoney_CheckedChanged);
 			// 
-			// showDate
+			// showOrganization
 			// 
-			this.showDate.AutoSize = true;
-			this.showDate.Checked = true;
-			this.showDate.CheckState = System.Windows.Forms.CheckState.Checked;
-			this.showDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-			this.showDate.Location = new System.Drawing.Point(6, 114);
-			this.showDate.Name = "showDate";
-			this.showDate.Size = new System.Drawing.Size(49, 17);
-			this.showDate.TabIndex = 4;
-			this.showDate.Text = "Date";
-			this.showDate.UseVisualStyleBackColor = true;
-			this.showDate.CheckedChanged += new System.EventHandler(this.showDate_CheckedChanged);
+			this.showOrganization.AutoSize = true;
+			this.showOrganization.Checked = true;
+			this.showOrganization.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.showOrganization.ForeColor = System.Drawing.Color.Navy;
+			this.showOrganization.Location = new System.Drawing.Point(6, 68);
+			this.showOrganization.Name = "showOrganization";
+			this.showOrganization.Size = new System.Drawing.Size(85, 17);
+			this.showOrganization.TabIndex = 2;
+			this.showOrganization.Text = "Organization";
+			this.showOrganization.UseVisualStyleBackColor = true;
+			this.showOrganization.CheckedChanged += new System.EventHandler(this.showOrganization_CheckedChanged);
 			// 
-			// wedgesSlider
+			// showLocation
 			// 
-			this.wedgesSlider.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.wedgesSlider.Location = new System.Drawing.Point(357, 418);
-			this.wedgesSlider.Maximum = 40;
-			this.wedgesSlider.Minimum = 11;
-			this.wedgesSlider.Name = "wedgesSlider";
-			this.wedgesSlider.Size = new System.Drawing.Size(197, 34);
-			this.wedgesSlider.TabIndex = 2;
-			this.wedgesSlider.Value = 20;
-			this.wedgesSlider.Scroll += new System.EventHandler(this.wedgesSlider_Scroll);
+			this.showLocation.AutoSize = true;
+			this.showLocation.Checked = true;
+			this.showLocation.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.showLocation.ForeColor = System.Drawing.Color.Olive;
+			this.showLocation.Location = new System.Drawing.Point(6, 44);
+			this.showLocation.Name = "showLocation";
+			this.showLocation.Size = new System.Drawing.Size(67, 17);
+			this.showLocation.TabIndex = 1;
+			this.showLocation.Text = "Location";
+			this.showLocation.UseVisualStyleBackColor = true;
+			this.showLocation.CheckedChanged += new System.EventHandler(this.showLocation_CheckedChanged);
 			// 
-			// sliderLabel
+			// showPerson
 			// 
-			this.sliderLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.sliderLabel.Location = new System.Drawing.Point(252, 412);
-			this.sliderLabel.Name = "sliderLabel";
-			this.sliderLabel.Size = new System.Drawing.Size(99, 34);
-			this.sliderLabel.TabIndex = 3;
-			this.sliderLabel.Text = "Number of wedges:";
-			this.sliderLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.showPerson.AutoSize = true;
+			this.showPerson.Checked = true;
+			this.showPerson.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.showPerson.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+			this.showPerson.Location = new System.Drawing.Point(6, 21);
+			this.showPerson.Name = "showPerson";
+			this.showPerson.Size = new System.Drawing.Size(59, 17);
+			this.showPerson.TabIndex = 0;
+			this.showPerson.Text = "Person";
+			this.showPerson.UseVisualStyleBackColor = true;
+			this.showPerson.CheckedChanged += new System.EventHandler(this.showPerson_CheckedChanged);
 			// 
-			// NumEntitiesLabel
+			// openFileDialog1
 			// 
-			this.NumEntitiesLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.NumEntitiesLabel.AutoSize = true;
-			this.NumEntitiesLabel.Location = new System.Drawing.Point(12, 423);
-			this.NumEntitiesLabel.Name = "NumEntitiesLabel";
-			this.NumEntitiesLabel.Size = new System.Drawing.Size(108, 13);
-			this.NumEntitiesLabel.TabIndex = 4;
-			this.NumEntitiesLabel.Text = "Entities shown: 0 of 0";
-			this.NumEntitiesLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.openFileDialog1.FileName = "openFileDialog1";
+			this.openFileDialog1.Filter = "XML files|*.xml";
+			// 
+			// homeButton
+			// 
+			this.homeButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.homeButton.Location = new System.Drawing.Point(566, 292);
+			this.homeButton.Name = "homeButton";
+			this.homeButton.Size = new System.Drawing.Size(85, 23);
+			this.homeButton.TabIndex = 5;
+			this.homeButton.Text = "Home";
+			this.homeButton.UseVisualStyleBackColor = true;
+			this.homeButton.Click += new System.EventHandler(this.homeButton_Click);
 			// 
 			// GUI
 			// 
@@ -428,9 +443,9 @@
 			this.menuStrip1.PerformLayout();
 			this.BurstPanel.ResumeLayout(false);
 			this.BurstPanel.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.wedgesSlider)).EndInit();
 			this.entityTypes.ResumeLayout(false);
 			this.entityTypes.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.wedgesSlider)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -469,9 +484,9 @@
 		private System.Windows.Forms.CheckBox showDate;
 		private System.Windows.Forms.CheckBox showMoney;
 		private System.Windows.Forms.TrackBar wedgesSlider;
-		private System.IO.Ports.SerialPort serialPort1;
 		private System.Windows.Forms.Label sliderLabel;
 		private System.Windows.Forms.Label NumEntitiesLabel;
+		private System.Windows.Forms.Button homeButton;
     }
 }
 
