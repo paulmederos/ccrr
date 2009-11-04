@@ -199,6 +199,174 @@ namespace WordCloud
             }
         }
 
+        /// <summary>
+        /// Searches through the main database for Entities that are
+        /// in the same document as the Entity we are searching for.
+        /// </summary>
+        /// <param name="toFind">Entity we are finding associations for</param>
+        /// <returns>New list with associations</returns>
+        public LinkedList<Entity> search(Entity toFind, string fileName)
+        {
+            LinkedList<Entity> newList = new LinkedList<Entity>();
+            
+            Console.WriteLine("About to search...");
+            
+            XmlTextReader reader = new XmlTextReader(fileName);
+            string reportId = "";
+            string reportDesc = "";
+            Document toAdd = new Document("testName", "testText");
+            bool shouldScan = false;
+
+            // Time to go through the XML again...
+            while (reader.Read())
+            {
+                // If we just read an Element tag...
+                if (reader.NodeType.Equals(XmlNodeType.Element))
+                {
+                    // If Element tag shows we're in a new report...
+                    if (reader.Name.Equals("report"))
+                    {
+                        Console.WriteLine();
+                        Console.WriteLine("Scanning new report...");
+                        reader.Read(); // starts reading the report.
+                        reader.Read(); // readers the reportID tag.
+                        reader.Read(); // reads the reportID text.
+                        reportId = reader.Value;
+                        
+
+                        // Make sure we are in a document that is associated with 
+                        // current Entity we are searching for.
+                        foreach (Document doc in entities.Find(toFind).Value.FileNames)
+                        {
+                            Console.WriteLine("Comparing ["+reportId+"] with ["+doc.getName()+"]");
+                            if (doc.getName() == reportId)
+                            {
+                                Console.WriteLine("ReportIDs match, lets scan it!");
+                                shouldScan = true;
+                            }
+                            else
+                            {
+                                Console.WriteLine("ReportIDs do NOT match...");
+                                shouldScan = false;
+                            }
+                        }
+                    }
+
+                    // Check to see what the current Tag is.
+                    switch (reader.Name)
+                    {
+                        case "reportDescription":
+                            if (shouldScan)
+                            {
+                                reader.Read();
+                                reportDesc = reader.Value;
+                                toAdd = new Document(reportId, reportDesc);
+                            }
+                            break;
+
+                        case "Person":
+                            if (shouldScan)
+                            {
+                                // Read the element's value
+                                reader.Read();
+                                string personName = reader.Value;
+
+                                // Create entity with Person enum (0)
+                                Entity newPerson = new Entity(personName, (Entity.EntityType)0);
+
+                                // Add entity to the main entity list if not found already 
+                                if (newList.Contains(newPerson))
+                                {
+                                    newList.Find(newPerson).Value.addFilename(toAdd);
+                                }
+                                else
+                                {
+                                    newPerson.addFilename(toAdd);
+                                    newList.AddLast(newPerson);
+                                }
+                                
+                            }
+                            break;
+
+                        case "Location":
+                            if (shouldScan)
+                            {
+                                reader.Read();
+                                string locName = reader.Value;
+                                Entity newLocation = new Entity(locName, (Entity.EntityType)1);
+                                if (newList.Contains(newLocation))
+                                {
+                                    newList.Find(newLocation).Value.addFilename(toAdd);
+                                }
+                                else
+                                {
+
+                                    newLocation.addFilename(toAdd);
+                                    newList.AddLast(newLocation);
+                                }
+                                
+                            }
+                            break;
+
+                        case "Organization":
+                            if (shouldScan)
+                            {
+                                reader.Read();
+                                Entity newOrg = new Entity(reader.Value, (Entity.EntityType)2);
+                                if (newList.Contains(newOrg))
+                                {
+                                    newList.Find(newOrg).Value.addFilename(toAdd);
+                                }
+                                else
+                                {
+                                    newOrg.addFilename(toAdd);
+                                    newList.AddLast(newOrg);
+                                }
+                                
+                            }
+                            break;
+
+                        case "Date":
+                            if (shouldScan)
+                            {
+                                reader.Read();
+                                Entity newDate = new Entity(reader.Value, (Entity.EntityType)3);
+                                if (newList.Contains(newDate))
+                                {
+                                    newList.Find(newDate).Value.addFilename(toAdd);
+                                }
+                                else
+                                {
+                                    newDate.addFilename(toAdd);
+                                    newList.AddLast(newDate);
+                                }
+                                
+                            }
+                            break;
+
+                        case "Money":
+                            if (shouldScan)
+                            {
+                                reader.Read();
+                                Entity newMoney = new Entity(reader.Value, (Entity.EntityType)4);
+                                if (newList.Contains(newMoney))
+                                {
+                                    newList.Find(newMoney).Value.addFilename(toAdd);
+                                }
+                                else
+                                {
+                                    newMoney.addFilename(toAdd);
+                                    newList.AddLast(newMoney);
+                                }
+                                
+                            }
+                            break;
+                    }                                    
+                }
+            }
+            return newList;
+        }
+
         #endregion
 
         #region OtherFunctions
