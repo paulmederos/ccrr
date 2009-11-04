@@ -53,7 +53,7 @@ namespace WordCloud
         /// <summary>
         /// Panel the burst should be drawn on.
         /// </summary>
-        BurstForm.MyPanel parentPanel;
+        Panel parentPanel;
 
         /// <summary>
         /// Text that appears in the center circle.
@@ -101,7 +101,7 @@ namespace WordCloud
         /// Create a docuburst.
         /// </summary>
         /// <param name="parent">Form the burst should appear in. </param>
-        public Docuburst(BurstForm.MyPanel parent)
+        public Docuburst(Panel parent)
         {
             petals = new LinkedList<Petal>();
             parentPanel = parent;

@@ -9,14 +9,13 @@ using System.Windows.Forms;
 
 namespace WordCloud
 {
+
     public partial class GUI : Form
     {
-        Docuburst d;
 
         public GUI()
         {
             InitializeComponent();
-            d = new Docuburst(docuBurstPanel);
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -48,5 +47,8 @@ namespace WordCloud
         {
             previousSearchBox.Items.Insert(0, searchBox.Text);
         }
+
+        
     }
+
 }
