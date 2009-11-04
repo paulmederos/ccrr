@@ -53,7 +53,7 @@ namespace WordCloud
         /// <summary>
         /// Panel the burst should be drawn on.
         /// </summary>
-        Panel parentPanel;
+        GUI.MyPanel parentPanel;
 
         /// <summary>
         /// Text that appears in the center circle.
@@ -101,7 +101,7 @@ namespace WordCloud
         /// Create a docuburst.
         /// </summary>
         /// <param name="parent">Form the burst should appear in. </param>
-        public Docuburst(Panel parent)
+        public Docuburst(GUI.MyPanel parent)
         {
             petals = new LinkedList<Petal>();
             parentPanel = parent;
@@ -243,10 +243,15 @@ namespace WordCloud
         /// </summary>
         /// <param name="entities">List used to form burst.</param>
         /// <param name="search">Tag burst was created from.</param>
-        public void Populate(List<Entity> entities, string search)
+        public void Populate(LinkedList<Entity> entities, string search)
         {
             searchTerm = search;
 
+			//Reset
+			petals.Clear();
+			numPetals = 0;
+
+			//Now populate
             foreach (Entity curEn in entities)
             {
                 Petal curPetal = new Petal();

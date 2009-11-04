@@ -1,8 +1,17 @@
-C:\Documents and Settings\Billy Hay\Desktop\ccrr\obj\Debug\ResolveAssemblyReference.cache
-C:\Documents and Settings\Billy Hay\Desktop\ccrr\obj\Debug\WordCloud.csproj.GenerateResource.Cache
-C:\Documents and Settings\Billy Hay\Desktop\ccrr\bin\Debug\WordCloud.exe
-C:\Documents and Settings\Billy Hay\Desktop\ccrr\bin\Debug\WordCloud.pdb
-C:\Documents and Settings\Billy Hay\Desktop\ccrr\obj\Debug\WordCloud.Properties.Resources.resources
-C:\Documents and Settings\Billy Hay\Desktop\ccrr\obj\Debug\WordCloud.exe
-C:\Documents and Settings\Billy Hay\Desktop\ccrr\obj\Debug\WordCloud.pdb
-C:\Documents and Settings\Billy Hay\Desktop\ccrr\obj\Debug\WordCloud.TestForm.resources
+C:\Documents and Settings\Jerm\Desktop\HCI\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Jerm\Desktop\HCI\obj\Debug\WordCloud.csproj.GenerateResource.Cache
+C:\Documents and Settings\Jerm\Desktop\HCI\bin\Debug\WordCloud.exe
+C:\Documents and Settings\Jerm\Desktop\HCI\bin\Debug\WordCloud.pdb
+C:\Documents and Settings\Jerm\Desktop\HCI\obj\Debug\WordCloud.Properties.Resources.resources
+C:\Documents and Settings\Jerm\Desktop\HCI\obj\Debug\WordCloud.exe
+C:\Documents and Settings\Jerm\Desktop\HCI\obj\Debug\WordCloud.pdb
+D:\School\F09\HCI\ccrr\obj\Debug\WordCloud.exe
+D:\School\F09\HCI\ccrr\obj\Debug\WordCloud.pdb
+D:\School\F09\HCI\ccrr\obj\Debug\ResolveAssemblyReference.cache
+D:\School\F09\HCI\ccrr\obj\Debug\WordCloud.Form1.resources
+D:\School\F09\HCI\ccrr\obj\Debug\WordCloud.Properties.Resources.resources
+D:\School\F09\HCI\ccrr\obj\Debug\WordCloud.csproj.GenerateResource.Cache
+D:\School\F09\HCI\ccrr\bin\Debug\WordCloud.exe
+D:\School\F09\HCI\ccrr\bin\Debug\WordCloud.pdb
+D:\School\F09\HCI\ccrr\obj\Debug\WordCloud.BurstForm.resources
+C:\Documents and Settings\Jerm\Desktop\HCI\obj\Debug\WordCloud.GUI.resources
