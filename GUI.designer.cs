@@ -51,6 +51,7 @@
 			this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.goodLuckToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.BurstPanel = new WordCloud.GUI.MyPanel();
+			this.homeButton = new System.Windows.Forms.Button();
 			this.NumEntitiesLabel = new System.Windows.Forms.Label();
 			this.sliderLabel = new System.Windows.Forms.Label();
 			this.wedgesSlider = new System.Windows.Forms.TrackBar();
@@ -61,7 +62,6 @@
 			this.showLocation = new System.Windows.Forms.CheckBox();
 			this.showPerson = new System.Windows.Forms.CheckBox();
 			this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-			this.homeButton = new System.Windows.Forms.Button();
 			this.searchPanel.SuspendLayout();
 			this.savedPanel.SuspendLayout();
 			this.sidePanel.SuspendLayout();
@@ -87,7 +87,9 @@
 			// searchPanel
 			// 
 			this.searchPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-						| System.Windows.Forms.AnchorStyles.Left)));
+						| System.Windows.Forms.AnchorStyles.Right)));
+			this.searchPanel.AutoScroll = true;
+			this.searchPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
 			this.searchPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.searchPanel.Controls.Add(this.previousSearchBox);
 			this.searchPanel.Controls.Add(this.label2);
@@ -101,11 +103,14 @@
 			// 
 			// previousSearchBox
 			// 
+			this.previousSearchBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+						| System.Windows.Forms.AnchorStyles.Left)));
 			this.previousSearchBox.FormattingEnabled = true;
 			this.previousSearchBox.Location = new System.Drawing.Point(41, 69);
 			this.previousSearchBox.Name = "previousSearchBox";
 			this.previousSearchBox.Size = new System.Drawing.Size(142, 69);
 			this.previousSearchBox.TabIndex = 4;
+			this.previousSearchBox.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.previousSearchBox_MouseDoubleClick);
 			// 
 			// label2
 			// 
@@ -146,7 +151,7 @@
 			// 
 			// savedPanel
 			// 
-			this.savedPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.savedPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.savedPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.savedPanel.Controls.Add(this.treeView1);
 			this.savedPanel.Controls.Add(this.label3);
@@ -286,6 +291,17 @@
 			this.BurstPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.BurstPanel_MouseMove);
 			this.BurstPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BurstPanel_MouseDown);
 			// 
+			// homeButton
+			// 
+			this.homeButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.homeButton.Location = new System.Drawing.Point(566, 292);
+			this.homeButton.Name = "homeButton";
+			this.homeButton.Size = new System.Drawing.Size(85, 23);
+			this.homeButton.TabIndex = 5;
+			this.homeButton.Text = "Home";
+			this.homeButton.UseVisualStyleBackColor = true;
+			this.homeButton.Click += new System.EventHandler(this.homeButton_Click);
+			// 
 			// NumEntitiesLabel
 			// 
 			this.NumEntitiesLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -408,17 +424,6 @@
 			// 
 			this.openFileDialog1.FileName = "openFileDialog1";
 			this.openFileDialog1.Filter = "XML files|*.xml";
-			// 
-			// homeButton
-			// 
-			this.homeButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.homeButton.Location = new System.Drawing.Point(566, 292);
-			this.homeButton.Name = "homeButton";
-			this.homeButton.Size = new System.Drawing.Size(85, 23);
-			this.homeButton.TabIndex = 5;
-			this.homeButton.Text = "Home";
-			this.homeButton.UseVisualStyleBackColor = true;
-			this.homeButton.Click += new System.EventHandler(this.homeButton_Click);
 			// 
 			// GUI
 			// 
