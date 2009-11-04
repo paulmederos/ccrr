@@ -89,6 +89,24 @@ namespace WordCloud
 			}
 		}
 
+
+		private void previousSearchBox_MouseDoubleClick(object sender, MouseEventArgs e)
+		{
+			string term = previousSearchBox.SelectedItem.ToString();
+			if (eList.containsEntity(term))
+			{
+				curSearchTerm = eList.getEntity(term);
+				burstList = eList.search(curSearchTerm, globalFileName);
+				refreshList();
+				//previousSearchBox.Items.Insert(0, searchBox.Text);
+			}
+			else
+			{
+				MessageBox.Show("Damn, we don't have that entity in our list!", "Name Entry Error",
+					MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+			}
+		}
+
 		private void openToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			DialogResult res = openFileDialog1.ShowDialog();
