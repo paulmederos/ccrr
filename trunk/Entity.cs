@@ -136,7 +136,7 @@ namespace WordCloud
         }
 
         /// <summary>
-        /// Filenames of files containing this entity.
+        /// List of files containing this entity.
         /// </summary>
         public List<Document> FileNames
         {
