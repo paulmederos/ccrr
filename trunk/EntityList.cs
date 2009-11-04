@@ -227,6 +227,11 @@ namespace WordCloud
 			return Out;
 		}
 
+        public LinkedList<Entity> getList()
+        {
+            return entities;
+        }
+
         #endregion
     }
 }
