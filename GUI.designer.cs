@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+			this.components = new System.ComponentModel.Container();
 			this.label4 = new System.Windows.Forms.Label();
 			this.searchPanel = new System.Windows.Forms.Panel();
 			this.previousSearchBox = new System.Windows.Forms.ListBox();
@@ -58,12 +59,17 @@
 			this.showOrganization = new System.Windows.Forms.CheckBox();
 			this.showMoney = new System.Windows.Forms.CheckBox();
 			this.showDate = new System.Windows.Forms.CheckBox();
+			this.wedgesSlider = new System.Windows.Forms.TrackBar();
+			this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
+			this.sliderLabel = new System.Windows.Forms.Label();
+			this.NumEntitiesLabel = new System.Windows.Forms.Label();
 			this.searchPanel.SuspendLayout();
 			this.savedPanel.SuspendLayout();
 			this.sidePanel.SuspendLayout();
 			this.menuStrip1.SuspendLayout();
 			this.BurstPanel.SuspendLayout();
 			this.entityTypes.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.wedgesSlider)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// label4
@@ -264,6 +270,9 @@
 			this.BurstPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
 						| System.Windows.Forms.AnchorStyles.Left)
 						| System.Windows.Forms.AnchorStyles.Right)));
+			this.BurstPanel.Controls.Add(this.NumEntitiesLabel);
+			this.BurstPanel.Controls.Add(this.sliderLabel);
+			this.BurstPanel.Controls.Add(this.wedgesSlider);
 			this.BurstPanel.Controls.Add(this.entityTypes);
 			this.BurstPanel.Controls.Add(this.label4);
 			this.BurstPanel.Location = new System.Drawing.Point(0, 24);
@@ -363,6 +372,39 @@
 			this.showDate.UseVisualStyleBackColor = true;
 			this.showDate.CheckedChanged += new System.EventHandler(this.showDate_CheckedChanged);
 			// 
+			// wedgesSlider
+			// 
+			this.wedgesSlider.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.wedgesSlider.Location = new System.Drawing.Point(357, 418);
+			this.wedgesSlider.Maximum = 40;
+			this.wedgesSlider.Minimum = 11;
+			this.wedgesSlider.Name = "wedgesSlider";
+			this.wedgesSlider.Size = new System.Drawing.Size(197, 34);
+			this.wedgesSlider.TabIndex = 2;
+			this.wedgesSlider.Value = 20;
+			this.wedgesSlider.Scroll += new System.EventHandler(this.wedgesSlider_Scroll);
+			// 
+			// sliderLabel
+			// 
+			this.sliderLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.sliderLabel.Location = new System.Drawing.Point(252, 412);
+			this.sliderLabel.Name = "sliderLabel";
+			this.sliderLabel.Size = new System.Drawing.Size(99, 34);
+			this.sliderLabel.TabIndex = 3;
+			this.sliderLabel.Text = "Number of wedges:";
+			this.sliderLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// NumEntitiesLabel
+			// 
+			this.NumEntitiesLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.NumEntitiesLabel.AutoSize = true;
+			this.NumEntitiesLabel.Location = new System.Drawing.Point(12, 423);
+			this.NumEntitiesLabel.Name = "NumEntitiesLabel";
+			this.NumEntitiesLabel.Size = new System.Drawing.Size(108, 13);
+			this.NumEntitiesLabel.TabIndex = 4;
+			this.NumEntitiesLabel.Text = "Entities shown: 0 of 0";
+			this.NumEntitiesLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
 			// GUI
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -388,6 +430,7 @@
 			this.BurstPanel.PerformLayout();
 			this.entityTypes.ResumeLayout(false);
 			this.entityTypes.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.wedgesSlider)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -425,6 +468,10 @@
 		private System.Windows.Forms.CheckBox showPerson;
 		private System.Windows.Forms.CheckBox showDate;
 		private System.Windows.Forms.CheckBox showMoney;
+		private System.Windows.Forms.TrackBar wedgesSlider;
+		private System.IO.Ports.SerialPort serialPort1;
+		private System.Windows.Forms.Label sliderLabel;
+		private System.Windows.Forms.Label NumEntitiesLabel;
     }
 }
 
