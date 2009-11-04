@@ -15,3 +15,5 @@ D:\School\F09\HCI\ccrr\bin\Debug\WordCloud.exe
 D:\School\F09\HCI\ccrr\bin\Debug\WordCloud.pdb
 D:\School\F09\HCI\ccrr\obj\Debug\WordCloud.BurstForm.resources
 C:\Documents and Settings\Jerm\Desktop\HCI\obj\Debug\WordCloud.GUI.resources
+C:\Documents and Settings\Sarah\Desktop\csproject\obj\Debug\WordCloud.exe
+C:\Documents and Settings\Sarah\Desktop\csproject\obj\Debug\WordCloud.pdb
