@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.docuBurstPanel = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.searchPanel = new System.Windows.Forms.Panel();
             this.previousSearchBox = new System.Windows.Forms.ListBox();
@@ -40,23 +39,11 @@
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.label3 = new System.Windows.Forms.Label();
             this.sidePanel = new System.Windows.Forms.Panel();
-            this.docuBurstPanel.SuspendLayout();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.searchPanel.SuspendLayout();
             this.savedPanel.SuspendLayout();
             this.sidePanel.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // docuBurstPanel
-            // 
-            this.docuBurstPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.docuBurstPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.docuBurstPanel.Controls.Add(this.label4);
-            this.docuBurstPanel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.docuBurstPanel.Location = new System.Drawing.Point(0, 0);
-            this.docuBurstPanel.Name = "docuBurstPanel";
-            this.docuBurstPanel.Size = new System.Drawing.Size(794, 495);
-            this.docuBurstPanel.TabIndex = 0;
-            this.docuBurstPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // label4
             // 
@@ -167,19 +154,24 @@
             this.sidePanel.Size = new System.Drawing.Size(227, 495);
             this.sidePanel.TabIndex = 1;
             // 
-            // Form1
+            // panel1
+            // 
+            this.panel1.Location = new System.Drawing.Point(1, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(793, 495);
+            this.panel1.TabIndex = 2;
+            // 
+            // GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CausesValidation = false;
             this.ClientSize = new System.Drawing.Size(1023, 495);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.sidePanel);
-            this.Controls.Add(this.docuBurstPanel);
-            this.Name = "Form1";
+            this.Name = "GUI";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.docuBurstPanel.ResumeLayout(false);
-            this.docuBurstPanel.PerformLayout();
             this.searchPanel.ResumeLayout(false);
             this.searchPanel.PerformLayout();
             this.savedPanel.ResumeLayout(false);
@@ -191,7 +183,6 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel docuBurstPanel;
         private System.Windows.Forms.Panel searchPanel;
         private System.Windows.Forms.Panel savedPanel;
         private System.Windows.Forms.Label label1;
@@ -203,6 +194,8 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel sidePanel;
         private System.Windows.Forms.TreeView treeView1;
+        private System.Windows.Forms.Panel panel1;
     }
+
 }
 
