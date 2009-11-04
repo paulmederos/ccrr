@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Media;
 
 
 namespace WordCloud
@@ -28,6 +29,7 @@ namespace WordCloud
 			burstList = new LinkedList<Entity>();
 			listTrim = 20;
 			dataLoaded = false;
+
         }
 
 		/// <summary>
@@ -69,6 +71,12 @@ namespace WordCloud
 				burstList = eList.search(curSearchTerm, globalFileName);
 				refreshList();
 				previousSearchBox.Items.Insert(0, hit.Name);
+
+				SoundPlayer s = new SoundPlayer();
+
+				string curDir = System.Environment.CurrentDirectory;
+				s.SoundLocation = curDir + "\\boom.wav";
+				s.Play();
 			}
 		}
 
@@ -99,6 +107,7 @@ namespace WordCloud
 				burstList = eList.search(curSearchTerm, globalFileName);
 				refreshList();
 				//previousSearchBox.Items.Insert(0, searchBox.Text);
+				
 			}
 			else
 			{
