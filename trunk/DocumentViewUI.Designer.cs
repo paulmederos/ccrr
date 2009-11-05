@@ -46,7 +46,7 @@
             // documentListBox
             // 
             this.documentListBox.FormattingEnabled = true;
-            this.documentListBox.Items.AddRange(curSearchEntity.fileNames);
+            //this.documentListBox.Items.AddRange(GUI.curSearchTerm.fileNames);
             this.documentListBox.Location = new System.Drawing.Point(3, 16);
             this.documentListBox.Name = "documentListBox";
             this.documentListBox.Size = new System.Drawing.Size(150, 199);
