@@ -283,5 +283,14 @@ namespace WordCloud
             docView.Show();
         }
 
+        private void searchBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                searchButton_Click_1(sender, e);
+            }
+        }
+
+
     }
 }
