@@ -208,26 +208,26 @@
             this.openToolStripMenuItem,
             this.quitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(35, 20);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // newToolStripMenuItem
             // 
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.newToolStripMenuItem.Text = "New";
             // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.openToolStripMenuItem.Text = "Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // quitToolStripMenuItem
             // 
             this.quitToolStripMenuItem.Name = "quitToolStripMenuItem";
-            this.quitToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
+            this.quitToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.quitToolStripMenuItem.Text = "Quit";
             // 
             // viewToolStripMenuItem
@@ -237,7 +237,7 @@
             this.entitiesToolStripMenuItem,
             this.wordCloudToolStripMenuItem});
             this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
-            this.viewToolStripMenuItem.Size = new System.Drawing.Size(41, 20);
+            this.viewToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.viewToolStripMenuItem.Text = "View";
             // 
             // documentsToolStripMenuItem
@@ -250,7 +250,7 @@
             // entitiesToolStripMenuItem
             // 
             this.entitiesToolStripMenuItem.Name = "entitiesToolStripMenuItem";
-            this.entitiesToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
+            this.entitiesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.entitiesToolStripMenuItem.Text = "Entities";
             // 
             // wordCloudToolStripMenuItem
@@ -258,22 +258,20 @@
             this.wordCloudToolStripMenuItem.Name = "wordCloudToolStripMenuItem";
             this.wordCloudToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.wordCloudToolStripMenuItem.Text = "Word Cloud";
-            this.wordCloudToolStripMenuItem.Click += new System.EventHandler(this.wordCloudToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.goodLuckToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(40, 20);
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.helpToolStripMenuItem.Text = "Help";
             // 
             // goodLuckToolStripMenuItem
             // 
             this.goodLuckToolStripMenuItem.Name = "goodLuckToolStripMenuItem";
-            this.goodLuckToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.goodLuckToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
             this.goodLuckToolStripMenuItem.Text = "Good Luck";
-            this.goodLuckToolStripMenuItem.Click += new System.EventHandler(this.goodLuckToolStripMenuItem_Click);
             // 
             // BurstPanel
             // 
@@ -333,7 +331,7 @@
             this.wedgesSlider.Maximum = 40;
             this.wedgesSlider.Minimum = 11;
             this.wedgesSlider.Name = "wedgesSlider";
-            this.wedgesSlider.Size = new System.Drawing.Size(197, 40);
+            this.wedgesSlider.Size = new System.Drawing.Size(197, 45);
             this.wedgesSlider.TabIndex = 2;
             this.wedgesSlider.Value = 20;
             this.wedgesSlider.Scroll += new System.EventHandler(this.wedgesSlider_Scroll);
@@ -440,7 +438,7 @@
             this.DoubleBuffered = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "GUI";
-            this.Text = "Change Me";
+            this.Text = "Form1";
             this.Resize += new System.EventHandler(this.GUI_Resize);
             this.searchPanel.ResumeLayout(false);
             this.searchPanel.PerformLayout();

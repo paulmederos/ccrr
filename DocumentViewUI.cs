@@ -12,9 +12,12 @@ namespace WordCloud
     public partial class DocumentViewUI : Form
     {
         Document curr_doc;
+
+
         public DocumentViewUI()
         {
-            InitializeComponent(); 
+            InitializeComponent();
+            documentListBox.Items.AddRange(GUI.curSearchTerm.fileNames.ToArray() );
         }
 
         private void documentListBox_MouseDoubleClick(object sender, MouseEventArgs e)
