@@ -82,7 +82,7 @@ namespace WordCloud
                 {
                     
                     if (reader.Name.Equals("report"))
-                    {s
+                    {
                         reader.Read(); // starts reading the report.
                         reader.Read(); // readers the reportID tag.
                         reader.Read(); // reads the reportID text.
