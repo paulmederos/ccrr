@@ -279,7 +279,7 @@ namespace WordCloud
 
         private void documentsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DocumentViewUI docView = new DocumentViewUI();
+            DocumentViewUI docView = new DocumentViewUI(curSearchTerm);
             docView.Show();
         }
 
