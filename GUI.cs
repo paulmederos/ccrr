@@ -20,6 +20,8 @@ namespace WordCloud
 		int listTrim;
 		public Entity curSearchTerm;
         string globalFileName; //Path for XML file.
+        Document curr_doc;
+
 
         public GUI()
         {

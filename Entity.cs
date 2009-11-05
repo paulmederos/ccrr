@@ -30,7 +30,7 @@ namespace WordCloud
         /// <summary>
         /// List of files containing the entity.
         /// </summary>
-        LinkedList<Document> fileNames;
+        public LinkedList<Document> fileNames;
 
 
         #endregion
