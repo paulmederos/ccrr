@@ -17,10 +17,25 @@ namespace WordCloud
         public DocumentViewUI()
         {
             InitializeComponent();
-            documentListBox.Items.AddRange(GUI.curSearchTerm.fileNames.ToArray() );
+            entityLabel.Text = "No Entity Selected.";
+        }
+
+        public DocumentViewUI(Entity curEntity)
+        {
+            InitializeComponent();
+            entityLabel.Text = curEntity.Name;
+            foreach (Document doc in curEntity.fileNames)
+            {
+                documentListBox.Items.Add(doc);
+            }
         }
 
         private void documentListBox_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            
+        }
+
+        private void documentListBox_Click(object sender, EventArgs e)
         {
             string term = documentListBox.SelectedItem.ToString();
             curr_doc = (Document)documentListBox.SelectedItem;

@@ -31,12 +31,16 @@
             this.documentListBox = new System.Windows.Forms.ListBox();
             this.documentPanel = new System.Windows.Forms.Panel();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.entityLabel = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.documentPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.entityLabel);
             this.panel1.Controls.Add(this.documentListBox);
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
@@ -46,11 +50,11 @@
             // documentListBox
             // 
             this.documentListBox.FormattingEnabled = true;
-            //this.documentListBox.Items.AddRange(GUI.curSearchTerm.fileNames);
-            this.documentListBox.Location = new System.Drawing.Point(3, 16);
+            this.documentListBox.Location = new System.Drawing.Point(3, 36);
             this.documentListBox.Name = "documentListBox";
             this.documentListBox.Size = new System.Drawing.Size(150, 199);
             this.documentListBox.TabIndex = 0;
+            this.documentListBox.Click += new System.EventHandler(this.documentListBox_Click);
             // 
             // documentPanel
             // 
@@ -71,6 +75,26 @@
             this.textBox1.Size = new System.Drawing.Size(448, 507);
             this.textBox1.TabIndex = 0;
             // 
+            // entityLabel
+            // 
+            this.entityLabel.AutoSize = true;
+            this.entityLabel.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.entityLabel.Location = new System.Drawing.Point(13, 10);
+            this.entityLabel.Name = "entityLabel";
+            this.entityLabel.Size = new System.Drawing.Size(90, 16);
+            this.entityLabel.TabIndex = 1;
+            this.entityLabel.Text = "Documents";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(3, 10);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(90, 16);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Documents";
+            // 
             // DocumentViewUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -81,6 +105,7 @@
             this.Name = "DocumentViewUI";
             this.Text = "DocumentViewUI";
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.documentPanel.ResumeLayout(false);
             this.documentPanel.PerformLayout();
             this.ResumeLayout(false);
@@ -93,5 +118,7 @@
         private System.Windows.Forms.ListBox documentListBox;
         private System.Windows.Forms.Panel documentPanel;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label entityLabel;
+        private System.Windows.Forms.Label label1;
     }
 }
