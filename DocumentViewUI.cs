@@ -12,6 +12,7 @@ namespace WordCloud
     public partial class DocumentViewUI : Form
     {
         Document curr_doc;
+        LinkedList<Document> docList;
 
 
         public DocumentViewUI()
@@ -26,8 +27,9 @@ namespace WordCloud
             entityLabel.Text = curEntity.Name;
             foreach (Document doc in curEntity.fileNames)
             {
-                documentListBox.Items.Add(doc);
+                documentListBox.Items.Add(doc.name);
             }
+            docList = GUI.curSearchTerm.fileNames;
         }
 
         private void documentListBox_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -37,9 +39,16 @@ namespace WordCloud
 
         private void documentListBox_Click(object sender, EventArgs e)
         {
-            string term = documentListBox.SelectedItem.ToString();
-            curr_doc = (Document)documentListBox.SelectedItem;
-            this.textBox1.Text = curr_doc.text;
+            Document selectedDoc = new Document("BLANK", "BLANK");
+            foreach (Document cur in docList)
+            {
+                if (cur.name == (string)documentListBox.SelectedItem)
+                {
+                    selectedDoc = cur;
+                    break;
+                }
+            }
+            textBox1.Text = selectedDoc.text;
         }
 
         private void documentListBox_KeyPress(object sender, KeyPressEventArgs e)

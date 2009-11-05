@@ -6,3 +6,12 @@ C:\Documents and Settings\Jerm\Desktop\HCI\bin\Debug\WordCloud.exe
 C:\Documents and Settings\Jerm\Desktop\HCI\bin\Debug\WordCloud.pdb
 C:\Documents and Settings\Jerm\Desktop\HCI\obj\Debug\WordCloud.exe
 C:\Documents and Settings\Jerm\Desktop\HCI\obj\Debug\WordCloud.pdb
+C:\Documents and Settings\Sarah\Desktop\csproject\bin\Debug\WordCloud.exe
+C:\Documents and Settings\Sarah\Desktop\csproject\bin\Debug\WordCloud.pdb
+C:\Documents and Settings\Sarah\Desktop\csproject\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Sarah\Desktop\csproject\obj\Debug\WordCloud.DocumentViewUI.resources
+C:\Documents and Settings\Sarah\Desktop\csproject\obj\Debug\WordCloud.GUI.resources
+C:\Documents and Settings\Sarah\Desktop\csproject\obj\Debug\WordCloud.Properties.Resources.resources
+C:\Documents and Settings\Sarah\Desktop\csproject\obj\Debug\WordCloud.csproj.GenerateResource.Cache
+C:\Documents and Settings\Sarah\Desktop\csproject\obj\Debug\WordCloud.exe
+C:\Documents and Settings\Sarah\Desktop\csproject\obj\Debug\WordCloud.pdb
