@@ -74,11 +74,6 @@ namespace WordCloud
 				refreshList();
 				previousSearchBox.Items.Insert(0, hit.Name);
 
-				SoundPlayer s = new SoundPlayer();
-
-				string curDir = System.Environment.CurrentDirectory;
-				s.SoundLocation = curDir + "\\boom.wav";
-				s.Play();
 			}
 		}
 
