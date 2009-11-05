@@ -28,11 +28,11 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.entityLabel = new System.Windows.Forms.Label();
             this.documentListBox = new System.Windows.Forms.ListBox();
             this.documentPanel = new System.Windows.Forms.Panel();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.entityLabel = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.documentPanel.SuspendLayout();
             this.SuspendLayout();
@@ -47,6 +47,26 @@
             this.panel1.Size = new System.Drawing.Size(156, 523);
             this.panel1.TabIndex = 0;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(3, 10);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(90, 16);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Documents";
+            // 
+            // entityLabel
+            // 
+            this.entityLabel.AutoSize = true;
+            this.entityLabel.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.entityLabel.Location = new System.Drawing.Point(13, 10);
+            this.entityLabel.Name = "entityLabel";
+            this.entityLabel.Size = new System.Drawing.Size(90, 16);
+            this.entityLabel.TabIndex = 1;
+            this.entityLabel.Text = "Documents";
+            // 
             // documentListBox
             // 
             this.documentListBox.FormattingEnabled = true;
@@ -54,6 +74,7 @@
             this.documentListBox.Name = "documentListBox";
             this.documentListBox.Size = new System.Drawing.Size(150, 199);
             this.documentListBox.TabIndex = 0;
+            this.documentListBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.documentListBox_KeyPress);
             this.documentListBox.Click += new System.EventHandler(this.documentListBox_Click);
             // 
             // documentPanel
@@ -74,26 +95,6 @@
             this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBox1.Size = new System.Drawing.Size(448, 507);
             this.textBox1.TabIndex = 0;
-            // 
-            // entityLabel
-            // 
-            this.entityLabel.AutoSize = true;
-            this.entityLabel.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.entityLabel.Location = new System.Drawing.Point(13, 10);
-            this.entityLabel.Name = "entityLabel";
-            this.entityLabel.Size = new System.Drawing.Size(90, 16);
-            this.entityLabel.TabIndex = 1;
-            this.entityLabel.Text = "Documents";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(3, 10);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(90, 16);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Documents";
             // 
             // DocumentViewUI
             // 

@@ -41,5 +41,10 @@ namespace WordCloud
             curr_doc = (Document)documentListBox.SelectedItem;
             this.textBox1.Text = curr_doc.text;
         }
+
+        private void documentListBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            documentListBox_Click(sender, e);
+        }
     }
 }
