@@ -15,12 +15,12 @@ namespace WordCloud
         /// <summary>
         /// Name of document.
         /// </summary>
-        string name;
+        public string name;
 
         /// <summary>
         /// Text of document.
         /// </summary>
-        string text;
+        public string text;
 
         /// <summary>
         /// List of entities in the document.  This will be useful if 
@@ -82,6 +82,15 @@ namespace WordCloud
             {
                 return false;
             }
+        }
+
+
+        /// <summary>
+        /// Overrides tostring
+        /// </summary>
+        public string toString()
+        {
+            return name;
         }
 
         #endregion

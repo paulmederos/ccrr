@@ -6,7 +6,7 @@ using System.Text;
 namespace WordCloud
 {
     /// <summary>
-    /// A list of entities, if you can believe it.
+    /// A list of documents, if you can believe it.
     /// </summary>
     class DocumentList
     {
