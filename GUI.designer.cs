@@ -62,12 +62,13 @@
             this.showLocation = new System.Windows.Forms.CheckBox();
             this.showPerson = new System.Windows.Forms.CheckBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.addButton = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.searchPanel.SuspendLayout();
             this.savedPanel.SuspendLayout();
             this.sidePanel.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.BurstPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.wedgesSlider)).BeginInit();
             this.entityTypes.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -91,6 +92,8 @@
             this.searchPanel.AutoScroll = true;
             this.searchPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.searchPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.searchPanel.Controls.Add(this.button1);
+            this.searchPanel.Controls.Add(this.addButton);
             this.searchPanel.Controls.Add(this.previousSearchBox);
             this.searchPanel.Controls.Add(this.label2);
             this.searchPanel.Controls.Add(this.searchButton);
@@ -106,9 +109,9 @@
             this.previousSearchBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)));
             this.previousSearchBox.FormattingEnabled = true;
-            this.previousSearchBox.Location = new System.Drawing.Point(41, 69);
+            this.previousSearchBox.Location = new System.Drawing.Point(3, 72);
             this.previousSearchBox.Name = "previousSearchBox";
-            this.previousSearchBox.Size = new System.Drawing.Size(142, 69);
+            this.previousSearchBox.Size = new System.Drawing.Size(170, 69);
             this.previousSearchBox.TabIndex = 4;
             this.previousSearchBox.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.previousSearchBox_MouseDoubleClick);
             // 
@@ -124,9 +127,9 @@
             // 
             // searchButton
             // 
-            this.searchButton.Location = new System.Drawing.Point(187, 20);
+            this.searchButton.Location = new System.Drawing.Point(179, 20);
             this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(36, 24);
+            this.searchButton.Size = new System.Drawing.Size(44, 24);
             this.searchButton.TabIndex = 2;
             this.searchButton.Text = "Go";
             this.searchButton.UseVisualStyleBackColor = true;
@@ -136,7 +139,7 @@
             // 
             this.searchBox.Location = new System.Drawing.Point(3, 23);
             this.searchBox.Name = "searchBox";
-            this.searchBox.Size = new System.Drawing.Size(179, 20);
+            this.searchBox.Size = new System.Drawing.Size(170, 20);
             this.searchBox.TabIndex = 1;
             // 
             // label1
@@ -243,20 +246,20 @@
             // documentsToolStripMenuItem
             // 
             this.documentsToolStripMenuItem.Name = "documentsToolStripMenuItem";
-            this.documentsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.documentsToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.documentsToolStripMenuItem.Text = "Documents";
             this.documentsToolStripMenuItem.Click += new System.EventHandler(this.documentsToolStripMenuItem_Click);
             // 
             // entitiesToolStripMenuItem
             // 
             this.entitiesToolStripMenuItem.Name = "entitiesToolStripMenuItem";
-            this.entitiesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.entitiesToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.entitiesToolStripMenuItem.Text = "Entities";
             // 
             // wordCloudToolStripMenuItem
             // 
             this.wordCloudToolStripMenuItem.Name = "wordCloudToolStripMenuItem";
-            this.wordCloudToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.wordCloudToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.wordCloudToolStripMenuItem.Text = "Word Cloud";
             // 
             // helpToolStripMenuItem
@@ -289,8 +292,8 @@
             this.BurstPanel.Size = new System.Drawing.Size(659, 471);
             this.BurstPanel.TabIndex = 4;
             this.BurstPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.BurstPanel_Paint);
-            this.BurstPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.BurstPanel_MouseMove);
             this.BurstPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BurstPanel_MouseDown);
+            this.BurstPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.BurstPanel_MouseMove);
             // 
             // homeButton
             // 
@@ -426,6 +429,25 @@
             this.openFileDialog1.FileName = "openFileDialog1";
             this.openFileDialog1.Filter = "XML files|*.xml";
             // 
+            // addButton
+            // 
+            this.addButton.Location = new System.Drawing.Point(179, 72);
+            this.addButton.Name = "addButton";
+            this.addButton.Size = new System.Drawing.Size(44, 24);
+            this.addButton.TabIndex = 5;
+            this.addButton.Text = "Add";
+            this.addButton.UseVisualStyleBackColor = true;
+            this.addButton.Click += new System.EventHandler(this.addButton_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(179, 102);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(44, 24);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "Save";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -449,7 +471,6 @@
             this.menuStrip1.PerformLayout();
             this.BurstPanel.ResumeLayout(false);
             this.BurstPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.wedgesSlider)).EndInit();
             this.entityTypes.ResumeLayout(false);
             this.entityTypes.PerformLayout();
             this.ResumeLayout(false);
@@ -493,6 +514,8 @@
 		private System.Windows.Forms.Label sliderLabel;
 		private System.Windows.Forms.Label NumEntitiesLabel;
 		private System.Windows.Forms.Button homeButton;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button addButton;
     }
 }
 

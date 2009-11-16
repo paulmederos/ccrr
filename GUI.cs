@@ -286,6 +286,10 @@ namespace WordCloud
             }
         }
 
+        private void addButton_Click(object sender, EventArgs e)
+        {
+            eList.addEntity(new Entity(searchBox.Text, (Entity.EntityType)0));
+        }
 
     }
 }
