@@ -13,6 +13,7 @@ namespace WordCloud
 {
     public partial class GUI : Form
     {
+        Notes report = new Notes();
         Docuburst d;
 		EntityList eList;        
 		bool dataLoaded;
@@ -352,6 +353,9 @@ namespace WordCloud
 			}
 		}
 
-
+        private void notesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            report.Show();
+        }
     }
 }
