@@ -30,16 +30,17 @@
         {
 			this.label4 = new System.Windows.Forms.Label();
 			this.searchPanel = new System.Windows.Forms.Panel();
-			this.button1 = new System.Windows.Forms.Button();
-			this.addButton = new System.Windows.Forms.Button();
 			this.previousSearchBox = new System.Windows.Forms.ListBox();
 			this.label2 = new System.Windows.Forms.Label();
 			this.searchButton = new System.Windows.Forms.Button();
 			this.searchBox = new System.Windows.Forms.TextBox();
 			this.label1 = new System.Windows.Forms.Label();
 			this.savedPanel = new System.Windows.Forms.Panel();
-			this.treeView1 = new System.Windows.Forms.TreeView();
-			this.label3 = new System.Windows.Forms.Label();
+			this.removeEntity = new System.Windows.Forms.Button();
+			this.AddEntity = new System.Windows.Forms.Button();
+			this.EntityAdd = new System.Windows.Forms.TextBox();
+			this.label5 = new System.Windows.Forms.Label();
+			this.customEntityList = new System.Windows.Forms.ListBox();
 			this.sidePanel = new System.Windows.Forms.Panel();
 			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
 			this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -60,6 +61,7 @@
 			this.sliderLabel = new System.Windows.Forms.Label();
 			this.wedgesSlider = new System.Windows.Forms.TrackBar();
 			this.entityTypes = new System.Windows.Forms.GroupBox();
+			this.showCustom = new System.Windows.Forms.CheckBox();
 			this.showDate = new System.Windows.Forms.CheckBox();
 			this.showMoney = new System.Windows.Forms.CheckBox();
 			this.showOrganization = new System.Windows.Forms.CheckBox();
@@ -95,8 +97,6 @@
 			this.searchPanel.AutoScroll = true;
 			this.searchPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
 			this.searchPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.searchPanel.Controls.Add(this.button1);
-			this.searchPanel.Controls.Add(this.addButton);
 			this.searchPanel.Controls.Add(this.previousSearchBox);
 			this.searchPanel.Controls.Add(this.label2);
 			this.searchPanel.Controls.Add(this.searchButton);
@@ -106,25 +106,6 @@
 			this.searchPanel.Name = "searchPanel";
 			this.searchPanel.Size = new System.Drawing.Size(227, 158);
 			this.searchPanel.TabIndex = 1;
-			// 
-			// button1
-			// 
-			this.button1.Location = new System.Drawing.Point(179, 102);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(44, 24);
-			this.button1.TabIndex = 6;
-			this.button1.Text = "Save";
-			this.button1.UseVisualStyleBackColor = true;
-			// 
-			// addButton
-			// 
-			this.addButton.Location = new System.Drawing.Point(179, 72);
-			this.addButton.Name = "addButton";
-			this.addButton.Size = new System.Drawing.Size(44, 24);
-			this.addButton.TabIndex = 5;
-			this.addButton.Text = "Add";
-			this.addButton.UseVisualStyleBackColor = true;
-			this.addButton.Click += new System.EventHandler(this.addButton_Click);
 			// 
 			// previousSearchBox
 			// 
@@ -178,30 +159,61 @@
 			// 
 			this.savedPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.savedPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.savedPanel.Controls.Add(this.treeView1);
-			this.savedPanel.Controls.Add(this.label3);
+			this.savedPanel.Controls.Add(this.removeEntity);
+			this.savedPanel.Controls.Add(this.AddEntity);
+			this.savedPanel.Controls.Add(this.EntityAdd);
+			this.savedPanel.Controls.Add(this.label5);
+			this.savedPanel.Controls.Add(this.customEntityList);
 			this.savedPanel.Location = new System.Drawing.Point(0, 172);
 			this.savedPanel.Name = "savedPanel";
 			this.savedPanel.Size = new System.Drawing.Size(227, 299);
 			this.savedPanel.TabIndex = 2;
 			// 
-			// treeView1
+			// removeEntity
 			// 
-			this.treeView1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.treeView1.Location = new System.Drawing.Point(-1, 23);
-			this.treeView1.Name = "treeView1";
-			this.treeView1.Size = new System.Drawing.Size(227, 311);
-			this.treeView1.TabIndex = 1;
+			this.removeEntity.Location = new System.Drawing.Point(139, 69);
+			this.removeEntity.Name = "removeEntity";
+			this.removeEntity.Size = new System.Drawing.Size(75, 46);
+			this.removeEntity.TabIndex = 5;
+			this.removeEntity.Text = "Remove Selected";
+			this.removeEntity.UseVisualStyleBackColor = true;
+			this.removeEntity.Click += new System.EventHandler(this.removeEntity_Click);
 			// 
-			// label3
+			// AddEntity
 			// 
-			this.label3.AutoSize = true;
-			this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label3.Location = new System.Drawing.Point(83, 0);
-			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(59, 20);
-			this.label3.TabIndex = 0;
-			this.label3.Text = "Saved";
+			this.AddEntity.Location = new System.Drawing.Point(176, 29);
+			this.AddEntity.Name = "AddEntity";
+			this.AddEntity.Size = new System.Drawing.Size(47, 23);
+			this.AddEntity.TabIndex = 4;
+			this.AddEntity.Text = "Add";
+			this.AddEntity.UseVisualStyleBackColor = true;
+			this.AddEntity.Click += new System.EventHandler(this.AddEntity_Click);
+			// 
+			// EntityAdd
+			// 
+			this.EntityAdd.Location = new System.Drawing.Point(6, 31);
+			this.EntityAdd.Name = "EntityAdd";
+			this.EntityAdd.Size = new System.Drawing.Size(167, 20);
+			this.EntityAdd.TabIndex = 3;
+			// 
+			// label5
+			// 
+			this.label5.AutoSize = true;
+			this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label5.Location = new System.Drawing.Point(53, 0);
+			this.label5.Name = "label5";
+			this.label5.Size = new System.Drawing.Size(136, 20);
+			this.label5.TabIndex = 2;
+			this.label5.Text = "Custom Entities";
+			// 
+			// customEntityList
+			// 
+			this.customEntityList.FormattingEnabled = true;
+			this.customEntityList.Location = new System.Drawing.Point(6, 69);
+			this.customEntityList.Name = "customEntityList";
+			this.customEntityList.Size = new System.Drawing.Size(120, 225);
+			this.customEntityList.TabIndex = 0;
+			this.customEntityList.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.customEntityList_MouseDoubleClick);
 			// 
 			// sidePanel
 			// 
@@ -387,17 +399,32 @@
 			// entityTypes
 			// 
 			this.entityTypes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.entityTypes.Controls.Add(this.showCustom);
 			this.entityTypes.Controls.Add(this.showDate);
 			this.entityTypes.Controls.Add(this.showMoney);
 			this.entityTypes.Controls.Add(this.showOrganization);
 			this.entityTypes.Controls.Add(this.showLocation);
 			this.entityTypes.Controls.Add(this.showPerson);
-			this.entityTypes.Location = new System.Drawing.Point(560, 321);
+			this.entityTypes.Location = new System.Drawing.Point(560, 294);
 			this.entityTypes.Name = "entityTypes";
-			this.entityTypes.Size = new System.Drawing.Size(96, 138);
+			this.entityTypes.Size = new System.Drawing.Size(96, 165);
 			this.entityTypes.TabIndex = 1;
 			this.entityTypes.TabStop = false;
 			this.entityTypes.Text = "Entity Types";
+			// 
+			// showCustom
+			// 
+			this.showCustom.AutoSize = true;
+			this.showCustom.Checked = true;
+			this.showCustom.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.showCustom.ForeColor = System.Drawing.Color.DarkCyan;
+			this.showCustom.Location = new System.Drawing.Point(6, 137);
+			this.showCustom.Name = "showCustom";
+			this.showCustom.Size = new System.Drawing.Size(61, 17);
+			this.showCustom.TabIndex = 5;
+			this.showCustom.Text = "Custom";
+			this.showCustom.UseVisualStyleBackColor = true;
+			this.showCustom.CheckedChanged += new System.EventHandler(this.showCustom_CheckedChanged);
 			// 
 			// showDate
 			// 
@@ -513,11 +540,9 @@
         private System.Windows.Forms.Button searchButton;
         private System.Windows.Forms.TextBox searchBox;
         private System.Windows.Forms.ListBox previousSearchBox;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+		private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Panel sidePanel;
-        private System.Windows.Forms.TreeView treeView1;
+		private System.Windows.Forms.Panel sidePanel;
 		private System.Windows.Forms.MenuStrip menuStrip1;
 		private GUI.MyPanel BurstPanel;
 		private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
@@ -541,10 +566,14 @@
 		private System.Windows.Forms.Label sliderLabel;
 		private System.Windows.Forms.Label NumEntitiesLabel;
 		private System.Windows.Forms.Button homeButton;
-        private System.Windows.Forms.Button button1;
-		private System.Windows.Forms.Button addButton;
 		private System.Windows.Forms.Label DocuCount;
 		private System.Windows.Forms.Button showDocs;
+		private System.Windows.Forms.TextBox EntityAdd;
+		private System.Windows.Forms.Label label5;
+		private System.Windows.Forms.ListBox customEntityList;
+		private System.Windows.Forms.Button removeEntity;
+		private System.Windows.Forms.Button AddEntity;
+		private System.Windows.Forms.CheckBox showCustom;
     }
 }
 

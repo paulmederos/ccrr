@@ -15,7 +15,7 @@ namespace WordCloud
         /// <summary>
         /// Different types of entities
         /// </summary>
-        public enum EntityType { Person, Location, Organization, Date, Money }
+        public enum EntityType { Person, Location, Organization, Date, Money, Custom }
 
         /// <summary>
         /// Type of entity.
