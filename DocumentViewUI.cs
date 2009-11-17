@@ -29,6 +29,7 @@ namespace WordCloud
             {
                 documentListBox.Items.Add(doc.name);
             }
+
             docList = GUI.curSearchTerm.fileNames;
         }
 
