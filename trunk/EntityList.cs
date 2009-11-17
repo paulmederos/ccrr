@@ -57,6 +57,17 @@ namespace WordCloud
             }
         }
 
+		/// <summary>
+		/// REMOVES THE ENTITY! ALL CAPS!
+		/// </summary>
+		/// <param name="removeEn"></param>
+		/// <returns></returns>
+		public bool removeEntity(Entity removeEn)
+		{
+			entities.Remove(removeEn);
+			return true;
+		}
+
         public Entity getEntity(string toFind)
         {
             return entities.Find(new Entity(toFind, (Entity.EntityType)0)).Value;
@@ -237,6 +248,26 @@ namespace WordCloud
                                 reader.Read();
                                 reportDesc = reader.Value;
                                 toAdd = new Document(reportId, reportDesc);
+
+								foreach (Entity curEn in entities)
+								{
+									if (curEn.Type == Entity.EntityType.Custom)
+									{
+										if (reportDesc.Contains(curEn.Name))
+										{
+											if (newList.Contains(curEn))
+											{
+												newList.Find(curEn).Value.addFilename(toAdd);
+											}
+											else
+											{
+												Entity newCustom = new Entity(curEn.Name, Entity.EntityType.Custom);
+												newCustom.addFilename(toAdd);
+												newList.AddLast(newCustom);
+											}
+										}
+									}
+								}
                             }
                             break;
 
@@ -342,6 +373,49 @@ namespace WordCloud
             }
             return newList;
         }
+
+		/// <summary>
+		/// Parses the XML file and fills the custom entity with filenames.
+		/// </summary>
+		/// <param name="customEn"></param>
+		public void fillCustom(Entity customEn, string fileName)
+		{
+            XmlTextReader reader = new XmlTextReader(fileName);
+            string reportId = "";
+            string reportDesc = "";
+            Document toAdd = new Document("testName", "testText");
+
+            // Time to go through the XML again...
+			while (reader.Read())
+			{
+				// If we just read an Element tag...
+				if (reader.NodeType.Equals(XmlNodeType.Element))
+				{
+					// If Element tag shows we're in a new report...
+					if (reader.Name.Equals("report"))
+					{
+						reader.Read(); // starts reading the report.
+						reader.Read(); // readers the reportID tag.
+						reader.Read(); // reads the reportID text.
+						reportId = reader.Value;
+
+
+					}
+
+					if (reader.Name == "reportDescription")
+					{
+						reader.Read();
+						reportDesc = reader.Value;
+
+						if(reportDesc.Contains(customEn.Name))
+						{
+							toAdd = new Document(reportId, reportDesc);
+							customEn.addFilename(toAdd);
+						}
+					}
+				}
+			}
+		}
 
         #endregion
 

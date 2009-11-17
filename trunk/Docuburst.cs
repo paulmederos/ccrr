@@ -404,8 +404,17 @@ namespace WordCloud
                     {
                         return Color.FromArgb(255, 180, 180, 180);
                     }
+				default:
+					if (selected)
+					{
+						return Color.FromArgb(255, 130, 230, 230);
+					}
+					else
+					{
+						return Color.FromArgb(255, 100, 190, 190);
+					}
             }
-            return Color.Red;
+            //return Color.Red;
         }
 
         #endregion

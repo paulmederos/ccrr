@@ -162,6 +162,12 @@ namespace WordCloud
 		}
 
 
+		private void showCustom_CheckedChanged(object sender, EventArgs e)
+		{
+			refreshList();
+		}
+
+
 		/// <summary>
 		/// Trims a list of entities and returns a new one.
 		/// </summary>
@@ -240,6 +246,8 @@ namespace WordCloud
 					return showLocation.Checked;
 				case Entity.EntityType.Date:
 					return showDate.Checked;
+				case Entity.EntityType.Custom:
+					return showCustom.Checked;
 			}
 			return true;
 		}
@@ -296,7 +304,7 @@ namespace WordCloud
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            eList.addEntity(new Entity(searchBox.Text, (Entity.EntityType)0));
+            
         }
 
 		private void showDocs_Click(object sender, EventArgs e)
@@ -304,6 +312,46 @@ namespace WordCloud
 			DocumentViewUI docView = new DocumentViewUI(curSearchTerm);
 			docView.Show();
 		}
+
+		private void AddEntity_Click(object sender, EventArgs e)
+		{
+			Entity newCustom = new Entity(EntityAdd.Text, Entity.EntityType.Custom);
+			eList.addEntity(newCustom);
+			customEntityList.Items.Add(EntityAdd.Text);
+			eList.fillCustom(newCustom, globalFileName);
+			if (curSearchTerm.Name == "")
+			{
+				burstList = eList.getList();
+			}
+			else
+			{
+				burstList = eList.search(curSearchTerm, globalFileName);
+			}
+			refreshList();
+		}
+
+		private void removeEntity_Click(object sender, EventArgs e)
+		{
+			Entity removeEn = eList.getEntity((string)customEntityList.SelectedItem);
+			eList.removeEntity(removeEn);
+			customEntityList.Items.RemoveAt(customEntityList.SelectedIndex);
+			burstList = eList.search(curSearchTerm, globalFileName);
+			refreshList();
+		}
+
+		private void customEntityList_MouseDoubleClick(object sender, MouseEventArgs e)
+		{
+			string term = customEntityList.SelectedItem.ToString();
+			if (eList.containsEntity(term))
+			{
+				curSearchTerm = eList.getEntity(term);
+				burstList = eList.search(curSearchTerm, globalFileName);
+				refreshList();
+				//previousSearchBox.Items.Insert(0, searchBox.Text);
+
+			}
+		}
+
 
     }
 }
