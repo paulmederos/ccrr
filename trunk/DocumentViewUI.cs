@@ -13,12 +13,14 @@ namespace WordCloud
     {
         Document curr_doc;
         LinkedList<Document> docList;
+        LinkedList<string> viewedList;
 
 
         public DocumentViewUI()
         {
             InitializeComponent();
             entityLabel.Text = "No Entity Selected.";
+            viewedList = new LinkedList<string>();
         }
 
         public DocumentViewUI(Entity curEntity)
@@ -31,6 +33,7 @@ namespace WordCloud
             }
 
             docList = GUI.curSearchTerm.fileNames;
+            viewedList = new LinkedList<string>();
         }
 
         private void documentListBox_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -46,6 +49,7 @@ namespace WordCloud
                 if (cur.name == (string)documentListBox.SelectedItem)
                 {
                     selectedDoc = cur;
+                    viewedList.AddLast(cur.name);
                     break;
                 }
             }
@@ -55,6 +59,22 @@ namespace WordCloud
         private void documentListBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             documentListBox_Click(sender, e);
+        }
+
+        private void documentListBox_DrawItem(object sender, System.Windows.Forms.DrawItemEventArgs e)
+        {
+            e.DrawBackground();
+            Brush myBrush = Brushes.Black;
+
+            if (viewedList.Contains(((ListBox)sender).Items[e.Index].ToString()))
+            {
+                myBrush = Brushes.Red;
+            }
+
+            e.Graphics.DrawString(((ListBox)sender).Items[e.Index].ToString(), 
+                e.Font, myBrush,e.Bounds,StringFormat.GenericDefault);
+            
+            e.DrawFocusRectangle();
         }
     }
 }
