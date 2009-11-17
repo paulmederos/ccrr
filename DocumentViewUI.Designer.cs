@@ -69,6 +69,7 @@
             // 
             // documentListBox
             // 
+            this.documentListBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.documentListBox.FormattingEnabled = true;
             this.documentListBox.Location = new System.Drawing.Point(3, 36);
             this.documentListBox.Name = "documentListBox";
@@ -76,6 +77,9 @@
             this.documentListBox.TabIndex = 0;
             this.documentListBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.documentListBox_KeyPress);
             this.documentListBox.Click += new System.EventHandler(this.documentListBox_Click);
+            this.documentListBox.DrawItem +=
+                new System.Windows.Forms.DrawItemEventHandler(this.documentListBox_DrawItem);
+
             // 
             // documentPanel
             // 
