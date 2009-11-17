@@ -261,6 +261,14 @@ namespace WordCloud
 				+ burstList.Count.ToString();
 			NumEntitiesLabel.Text = labelText;
 
+			int docCount = curSearchTerm.fileNames.Count;
+			if (curSearchTerm.Name == "")
+			{
+				
+			}
+
+			DocuCount.Text = "Documents: " + docCount.ToString();
+
 			Refresh();
 		}
 
@@ -290,6 +298,12 @@ namespace WordCloud
         {
             eList.addEntity(new Entity(searchBox.Text, (Entity.EntityType)0));
         }
+
+		private void showDocs_Click(object sender, EventArgs e)
+		{
+			DocumentViewUI docView = new DocumentViewUI(curSearchTerm);
+			docView.Show();
+		}
 
     }
 }

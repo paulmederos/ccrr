@@ -12,3 +12,12 @@ D:\School\F09\HCI\ccrr\bin\Release\WordCloud.exe
 D:\School\F09\HCI\ccrr\bin\Release\WordCloud.pdb
 D:\School\F09\HCI\ccrr\obj\Release\WordCloud.exe
 D:\School\F09\HCI\ccrr\obj\Release\WordCloud.pdb
+C:\Documents and Settings\Jerm\Desktop\HCI\obj\Release\WordCloud.exe
+C:\Documents and Settings\Jerm\Desktop\HCI\obj\Release\WordCloud.pdb
+C:\Documents and Settings\Jerm\Desktop\HCI\obj\Release\ResolveAssemblyReference.cache
+C:\Documents and Settings\Jerm\Desktop\HCI\obj\Release\WordCloud.DocumentViewUI.resources
+C:\Documents and Settings\Jerm\Desktop\HCI\obj\Release\WordCloud.GUI.resources
+C:\Documents and Settings\Jerm\Desktop\HCI\obj\Release\WordCloud.Properties.Resources.resources
+C:\Documents and Settings\Jerm\Desktop\HCI\obj\Release\WordCloud.csproj.GenerateResource.Cache
+C:\Documents and Settings\Jerm\Desktop\HCI\bin\Release\WordCloud.exe
+C:\Documents and Settings\Jerm\Desktop\HCI\bin\Release\WordCloud.pdb
